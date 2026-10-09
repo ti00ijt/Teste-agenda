@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Turma | Colégio Global</title>
+
+  <link rel="stylesheet" href="../estilos/style.css">
+  
+</head>
+
+<body class="tela-turma" data-perfil="professor">
+
+  <!-- Cabeçalho -->
+  <header class="turma-cabecalho">
+    <div class="turma-container turma-topo">
+
+      <img
+        class="turma-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <nav class="turma-navegacao" aria-label="Navegação">
+        <a href="painel.professor.html">
+          ← Voltar
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="turma-container turma-conteudo">
+
+  <section class="turma-abertura" aria-labelledby="titulo-turma">
+
+    <div class="turma-identificacao">
+      <p class="turma-categoria">ÁREA DO PROFESSOR</p>
+
+      <h1 id="titulo-turma">Carregando turma...</h1>
+
+      <p id="identificacao-professor-turma"></p>
+      <p id="detalhes-turma"></p>
+
+      <p id="mensagem-acesso-turma" role="status" aria-live="polite">
+        Consultando os dados da turma...
+      </p>
+    </div>
+
+    <nav
+      class="turma-opcoes"
+      id="opcoes-turma"
+      aria-label="Criar mensagem"
+      hidden
+    >
+      <a class="turma-opcao" id="escrever-mensagem">
+        <strong>Escrever</strong>
+        <span>Selecionar destinatários →</span>
+      </a>
+    </nav>
+
+  </section>
+
+  <section class="turma-historico" aria-labelledby="titulo-historico">
+
+    <header class="turma-historico-topo">
+      <div>
+        <h2 id="titulo-historico">Mensagens enviadas</h2>
+        <p>Últimas 50 mensagens, da mais recente para a mais antiga.</p>
+      </div>
+
+      <span class="turma-quantidade" id="quantidade-mensagens">—</span>
+    </header>
+
+    <div
+      class="turma-rolagem"
+      role="region"
+      aria-label="Histórico de mensagens da turma"
+      tabindex="0"
+    >
+      <table class="turma-tabela">
+        <thead>
+          <tr>
+            <th scope="col">Data de envio</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Destinatário</th>
+            <th scope="col">Mensagem</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="historico-mensagens-turma">
+          <tr>
+            <td colspan="5">
+              O histórico será disponibilizado quando o envio
+              de mensagens estiver conectado.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+</main>
+  <footer class="turma-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+  <script type="module" src="../scripts/turma-professor.js"></script>
+</body>
+</html>

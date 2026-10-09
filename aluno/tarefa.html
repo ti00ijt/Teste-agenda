@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarefas | Colégio Global</title>
+  <link rel="stylesheet" href="../estilos/style.css">
+</head>
+<body class="pagina-tarefas">
+  <a class="bl-pular" href="#conteudo">Pular para o conteúdo</a>
+  <div class="bl-utilitario"><div>COLÉGIO GLOBAL <span>Portal educacional</span></div></div>
+  <header class="bl-topo">
+    <div class="bl-largura bl-topo-interno">
+      <img class="bl-logo" src="../imagens/img.png" alt="Colégio Global — Educação unitária">
+      <!-- Retorna ao login; integrar ao encerramento de sessão quando houver autenticação. -->
+      <a class="bl-sair" href="painelAluno.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v16h5M14 8l4 4-4 4M8 12h10"/></svg>Voltar</a>
+    </div>
+  </header>
+  <nav class="bl-menu" aria-label="Navegação principal"><div class="bl-largura">
+    <!-- Ajuste o nome do painel caso tenha renomeado o arquivo. -->
+    <a href="painelAluno.html">Área do aluno</a>
+    <a href="tarefa.html" aria-current="page">Tarefa</a>
+    <a href="aviso.html">Aviso</a>
+    <a href="bilhete.html">Bilhete</a>
+  </div></nav>
+
+  <main class="bl-largura bl-conteudo" id="conteudo">
+
+  <nav class="bl-caminho" aria-label="Localização">
+    <a href="painelAluno.html">Área do aluno</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Tarefas</span>
+  </nav>
+
+  <header class="bl-abertura">
+    <div>
+      <p class="bl-sobretitulo">AGENDA ESCOLAR</p>
+
+      <h1>Tarefas</h1>
+
+      <p class="bl-introducao">
+        Acompanhe as atividades e os prazos de entrega.
+      </p>
+    </div>
+
+    <svg
+      class="bl-envelope"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <rect x="5" y="4" width="14" height="17" rx="2"/>
+      <path d="M9 4V2h6v2M9 10h6M9 14h6M9 18h4"/>
+    </svg>
+  </header>
+
+  <p
+    id="mensagem-lista-tarefas"
+    role="status"
+    aria-live="polite"
+  >
+    Carregando tarefas...
+  </p>
+
+  <section
+    class="bl-lista"
+    id="lista-tarefas"
+    aria-label="Tarefas destinadas ao aluno"
+  ></section>
+
+  <a class="bl-voltar" href="painelAluno.html">
+    <span aria-hidden="true">←</span>
+    Voltar à área do aluno
+  </a>
+
+</main>
+  <footer class="bl-rodape">Colégio Global <span aria-hidden="true">•</span> Educação unitária</footer>
+  <script
+  type="module"
+  src="../scripts/tarefas-aluno.js"
+></script>
+</body>
+</html>

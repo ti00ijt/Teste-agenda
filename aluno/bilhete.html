@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilhetes | Colégio Global</title>
+  <link rel="stylesheet" href="../estilos/style.css">
+ 
+</head>
+<body class="pagina-bilhetes">
+  <a class="bl-pular" href="#conteudo">Pular para o conteúdo</a>
+  <div class="bl-utilitario"><div>COLÉGIO GLOBAL <span>Portal educacional</span></div></div>
+  <header class="bl-topo">
+    <div class="bl-largura bl-topo-interno">
+      <img class="bl-logo" src="../imagens/img.png" alt="Colégio Global — Educação unitária">
+      <!-- Retorna ao login; integrar ao encerramento de sessão quando houver autenticação. -->
+      <a class="bl-sair" href="painelAluno.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v16h5M14 8l4 4-4 4M8 12h10"/></svg>Voltar</a>
+    </div>
+  </header>
+  <nav class="bl-menu" aria-label="Navegação principal"><div class="bl-largura">
+    <!-- Ajuste o nome do painel caso tenha renomeado o arquivo. -->
+    <a href="painelAluno.html">Área do aluno</a>
+    <a href="tarefa.html">Tarefa</a>
+    <a href="aviso.html">Aviso</a>
+    <a href="bilhete.html" aria-current="page">Bilhete</a>
+  </div></nav>
+
+  <main class="bl-largura bl-conteudo" id="conteudo">
+
+  <nav class="bl-caminho" aria-label="Localização">
+    <a href="painelAluno.html">Área do aluno</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Bilhetes</span>
+  </nav>
+
+  <header class="bl-abertura">
+    <div>
+      <p class="bl-sobretitulo">AGENDA ESCOLAR</p>
+
+      <h1>Bilhetes</h1>
+
+      <p class="bl-introducao">
+        Acompanhe os bilhetes enviados pela escola.
+      </p>
+    </div>
+
+    <svg
+      class="bl-envelope"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2"/>
+      <path d="m3 6 9 7 9-7"/>
+    </svg>
+  </header>
+
+  <p
+    id="mensagem-lista-bilhetes"
+    role="status"
+    aria-live="polite"
+  >
+    Carregando bilhetes...
+  </p>
+
+  <section
+    class="bl-lista"
+    id="lista-bilhetes"
+    aria-label="Bilhetes destinados ao aluno"
+  ></section>
+
+  <a class="bl-voltar" href="painelAluno.html">
+    <span aria-hidden="true">←</span>
+    Voltar à área do aluno
+  </a>
+
+</main>
+  <footer class="bl-rodape">Colégio Global <span aria-hidden="true">•</span> Educação unitária</footer>
+  <script
+  type="module"
+  src="../scripts/bilhetes-aluno.js"
+></script>
+</body>
+</html>

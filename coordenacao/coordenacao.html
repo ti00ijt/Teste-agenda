@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Coordenação | Colégio Global</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="coordenacao.css">
+  <style>
+  body[data-perfil]:not([data-acesso="liberado"]) {
+    visibility: hidden;
+  }
+ </style>
+</head>
+
+<body class="tela-coordenacao" data-perfil="coordenacao">
+
+  <!-- Cabeçalho -->
+  <header class="coord-cabecalho">
+
+    <img
+      class="coord-logo"
+      src="../imagens/img.png"
+      alt="Colégio Global"
+    >
+
+    <!-- Por enquanto, apenas retorna ao login -->
+    <a id="botao-sair"  class="coord-sair" >
+      Sair
+    </a>
+
+  </header>
+
+  <div class="coord-layout">
+
+    <!-- Menu lateral:
+         details abre e fecha sem JavaScript.
+         open faz o menu começar aberto. -->
+    <details class="coord-menu" open>
+
+      <summary class="coord-menu-controle">
+        <span class="coord-hamburguer" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <span>Menu</span>
+      </summary>
+
+      <nav class="coord-menu-links" aria-label="Administração">
+
+        <p class="coord-menu-titulo">CADASTROS</p>
+
+        <a href="cadastrar-professor.html">
+          Cadastrar professor
+        </a>
+
+        <a href="cadastrar-turma.html">
+          Cadastrar turma
+        </a>
+
+        <a href="cadastrar-aluno.html">
+          Cadastrar aluno
+        </a>
+
+        <!--<p class="coord-menu-titulo">CONSULTAS</p>
+
+        <a href="historico-sala.html">
+          Histórico por sala
+        </a> -->
+
+      </nav>
+
+    </details>
+
+    <!-- Área principal -->
+    <main class="coord-conteudo">
+
+      <section
+        class="coord-apresentacao"
+        aria-labelledby="titulo-coordenacao"
+      >
+        <p class="coord-categoria">ÁREA ADMINISTRATIVA</p>
+
+        <h1 id="titulo-coordenacao">Coordenação</h1>
+
+        <p>
+          Acompanhe as mensagens enviadas pelos professores
+          e gerencie os cadastros do colégio.
+        </p>
+      </section>
+
+      <!-- Mensagens para análise -->
+      <section aria-labelledby="titulo-aprovacoes">
+
+        <div class="coord-secao-topo">
+          <h2 id="titulo-aprovacoes">Aprovação de mensagens</h2>
+          <p>Selecione uma categoria para consultar.</p>
+        </div>
+
+        <div class="coord-categorias">
+
+          <!-- Tarefas -->
+          <a
+            class="coord-cartao"
+            href="aprovacoes.html?tipo=tarefa"
+          ><span class="coord-pendencia">
+          <span aria-hidden="true">🔔</span>
+          <span id="pendentes-tarefa" role="status">
+            Carregando...
+          </span>
+        </span>
+
+            <h3>Tarefa</h3>
+
+            <p>
+              Consulte as atividades encaminhadas pelos professores.
+            </p>
+
+            <span class="coord-acessar">
+              Analisar tarefas
+              <span aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <!-- Avisos -->
+          <a
+            class="coord-cartao"
+            href="aprovacoes.html?tipo=aviso"
+          >
+        <span class="coord-pendencia">
+          <span aria-hidden="true">🔔</span>
+          <span id="pendentes-aviso" role="status">
+            Carregando...
+          </span>
+        </span>
+
+            <h3>Aviso</h3>
+
+            <p>
+              Revise os comunicados destinados às famílias.
+            </p>
+
+            <span class="coord-acessar">
+              Analisar avisos
+              <span aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <!-- Bilhetes -->
+          <a
+            class="coord-cartao"
+            href="aprovacoes.html?tipo=bilhete"
+          >
+           <span class="coord-pendencia">
+            <span aria-hidden="true">🔔</span>
+            <span id="pendentes-bilhete" role="status">
+              Carregando...
+            </span>
+          </span>
+
+            <h3>Bilhete</h3>
+
+            <p>
+              Confira os bilhetes gerais e individuais enviados.
+            </p>
+
+            <span class="coord-acessar">
+              Analisar bilhetes
+              <span aria-hidden="true">→</span>
+            </span>
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- Histórico geral -->
+      <a class="coord-historico" href="historico-geral.html">
+
+        <div>
+          <h2>Histórico geral</h2>
+
+          <p>
+            Consulte as mensagens e seus status de aprovação.
+          </p>
+        </div>
+
+        <span class="coord-historico-acao">
+          Acessar histórico
+          <span aria-hidden="true">→</span>
+        </span>
+
+      </a>
+
+    </main>
+
+  </div>
+
+  <footer class="coord-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+  <script type="module" src="../scripts/sair.js"></script>
+  <script type="module" src="../scripts/verificar-acesso.js"></script>
+  <script
+  type="module"
+  src="../scripts/contadores-coordenacao.js"></script>
+</body>
+</html>

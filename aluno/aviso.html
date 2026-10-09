@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avisos | Colégio Global</title>
+  <link rel="stylesheet" href="../estilos/style.css">
+  
+</head>
+<body class="pagina-avisos">
+  <a class="bl-pular" href="#conteudo">Pular para o conteúdo</a>
+  <div class="bl-utilitario"><div>COLÉGIO GLOBAL <span>Portal educacional</span></div></div>
+  <header class="bl-topo">
+    <div class="bl-largura bl-topo-interno">
+      <img class="bl-logo" src="../imagens/img.png" alt="Colégio Global — Educação unitária">
+      <!-- Retorna ao login; integrar ao encerramento de sessão quando houver autenticação. -->
+      <a class="bl-sair" href="painelAluno.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v16h5M14 8l4 4-4 4M8 12h10"/></svg>Voltar</a>
+    </div>
+  </header>
+  <nav class="bl-menu" aria-label="Navegação principal"><div class="bl-largura">
+    <!-- Ajuste o nome do painel caso tenha renomeado o arquivo. -->
+    <a href="painelAluno.html">Área do aluno</a>
+    <a href="tarefa.html">Tarefa</a>
+    <a href="aviso.html" aria-current="page">Aviso</a>
+    <a href="bilhete.html">Bilhete</a>
+  </div></nav>
+
+  <main class="bl-largura bl-conteudo" id="conteudo">
+   <main class="bl-largura bl-conteudo" id="conteudo">
+
+  <nav class="bl-caminho" aria-label="Localização">
+    <a href="painelAluno.html">Área do aluno</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Avisos</span>
+  </nav>
+
+  <header class="bl-abertura">
+    <div>
+      <p class="bl-sobretitulo">AGENDA ESCOLAR</p>
+
+      <h1>Avisos</h1>
+
+      <p class="bl-introducao">
+        Fique por dentro dos comunicados e novidades do colégio.
+      </p>
+    </div>
+
+    <svg
+      class="bl-envelope"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path d="m4 10 14-5v14L4 14ZM4 10v4H2v-4M7 15l1 6h4l-2-5M21 9v6"/>
+    </svg>
+  </header>
+
+  <p
+    id="mensagem-lista-avisos"
+    role="status"
+    aria-live="polite"
+  >
+    A listagem será conectada no próximo passo.
+  </p>
+
+  <section
+    class="bl-lista"
+    id="lista-avisos"
+    aria-label="Avisos destinados ao aluno"
+  ></section>
+
+  <a class="bl-voltar" href="painelAluno.html">
+    <span aria-hidden="true">←</span>
+    Voltar à área do aluno
+  </a>
+
+</main>
+  </main>
+  <footer class="bl-rodape">Colégio Global <span aria-hidden="true">•</span> Educação unitária</footer>
+  <script type="module" src="../scripts/avisos-aluno.js"></script>
+</body>
+</html>

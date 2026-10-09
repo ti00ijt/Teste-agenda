@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Área do professor | Colégio Global</title>
+
+  <link rel="stylesheet" href="../estilos/style.css">
+  <style>
+  body[data-perfil]:not([data-acesso="liberado"]) {
+    visibility: hidden;
+  }
+</style>
+  
+</head>
+
+<body class="tela-professor" data-perfil="professor">
+
+  <!-- Cabeçalho -->
+  <header class="prof-cabecalho">
+    <div class="prof-container prof-topo">
+
+      <img
+        class="prof-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <!-- Por enquanto, apenas retorna à tela de login -->
+      <a id="botao-sair" class="prof-sair" href="../index.html">
+        Sair
+      </a>
+
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="prof-container prof-conteudo">
+
+    <!-- Identificação do professor -->
+    <section
+      class="prof-apresentacao"
+      aria-labelledby="titulo-professor"
+    >
+      <p class="prof-categoria">ÁREA DO PROFESSOR</p>
+      <h1>Olá, <span id="nome-professor-painel">carregando...</span>!</h1>
+
+      <p id="mensagem-painel-professor" role="status" aria-live="polite"></p>
+
+      <p class="prof-descricao">
+        Selecione uma das matérias que você leciona.
+      </p>
+    </section>
+
+    <!-- Matérias -->
+    <section aria-labelledby="titulo-materias">
+      <h2 class="prof-secao-titulo" id="titulo-materias">
+        Minhas matérias
+      </h2>
+
+      <p id="mensagem-materias-professor" role="status" aria-live="polite">
+        Carregando matérias...
+      </p>
+
+      <div class="prof-materias" id="lista-materias-professor"></div>
+    </section>
+  </main>
+
+  <footer class="prof-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+  <script type="module" src="../scripts/verificar-acesso.js"></script>
+  <script type="module" src="../scripts/painel-professor.js"></script>
+</body>
+</html>

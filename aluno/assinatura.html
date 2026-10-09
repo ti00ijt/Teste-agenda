@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Assinatura | Colégio Global</title>
+
+  <!-- Estilo geral do projeto -->
+  <link rel="stylesheet" href="../estilos/style.css">
+
+ 
+</head>
+
+<body class="tela-assinatura">
+
+  <!-- Cabeçalho -->
+  <header class="assinatura-cabecalho">
+    <div class="assinatura-container assinatura-topo">
+
+      <img
+        class="assinatura-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <a
+        class="assinatura-voltar"
+        href="detalhe-bilhete.html"
+      >
+        ← Voltar
+      </a>
+
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="assinatura-container assinatura-conteudo">
+
+    <section
+      class="assinatura-cartao"
+      aria-labelledby="titulo-assinatura"
+    >
+
+      <p class="assinatura-categoria">AGENDA ESCOLAR</p>
+
+      <h1 id="titulo-assinatura">
+        Assinatura do responsável
+      </h1>
+
+      <p class="assinatura-descricao">
+        Informe seu nome completo e sua senha cadastrada
+        para confirmar a ciência da mensagem.
+      </p>
+
+      <!-- Exemplo da mensagem que será assinada -->
+      <div class="assinatura-referencia">
+        <span>Mensagem selecionada</span>
+        <strong>Material para a próxima aula</strong>
+        <span>Enviada por</span>
+        <strong>Professora Ana</strong>
+        
+      </div>
+
+      <!-- Campos visuais: ainda não existe validação -->
+      <div class="assinatura-campos">
+
+        <div class="assinatura-campo">
+          <label for="nome-responsavel">
+            Nome completo do responsável
+          </label>
+
+          <input
+            type="text"
+            id="nome-responsavel"
+            placeholder="Digite seu nome completo"
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="assinatura-campo">
+          <label for="senha-responsavel">
+            Senha cadastrada
+          </label>
+
+          <input
+            type="password"
+            id="senha-responsavel"
+            placeholder="Digite sua senha"
+            autocomplete="off"
+            aria-describedby="nota-prototipo"
+          >
+        </div>
+
+        <p
+          class="assinatura-prototipo"
+          id="nota-prototipo"
+        >
+          Protótipo visual: utilize dados fictícios.
+          Nenhuma assinatura será registrada.
+        </p>
+
+        <div class="assinatura-acoes">
+
+          <a
+            class="assinatura-cancelar"
+            href="detalhe-bilhete.html"
+          >
+            Cancelar
+          </a>
+
+          <!-- Sem ação nesta etapa -->
+          <button
+            class="assinatura-confirmar"
+            type="button"
+          >
+            Assinar
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="assinatura-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Cadastrar turma | Colégio Global</title>
+
+  <link rel="stylesheet" href="../estilos/style.css">
+  <link rel="stylesheet" href="coordenacao.css">
+</head>
+
+<body class="tela-cadastro-turma">
+
+  <!-- Cabeçalho -->
+  <header class="cadturma-cabecalho">
+    <div class="cadturma-container cadturma-topo">
+
+      <img
+        class="cadturma-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <nav class="cadturma-navegacao" aria-label="Navegação">
+        <a href="coordenacao.html">← Voltar</a>
+        <a href="index.html">Sair</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="cadturma-container cadturma-conteudo">
+
+    <div class="cadturma-apresentacao">
+      <p class="cadturma-categoria">COORDENAÇÃO • CADASTROS</p>
+
+      <h1>Cadastrar turma</h1>
+
+      <p>Informe a turma, a etapa de ensino e o período.</p>
+    </div>
+
+    <!-- Área de cadastro -->
+    <section
+      class="cadturma-cartao"
+      aria-labelledby="titulo-cadastro"
+    >
+      <h2 id="titulo-cadastro">Dados da turma</h2>
+
+      <div class="cadturma-campos">
+        <div class="cadturma-campo">
+          <label for="ensino-turma">Ensino</label>
+
+          <select id="ensino-turma" name="ensino">
+           <!-- No select de ensino -->
+              <option value="">Selecione</option>
+              <option value="fundamental-1">Fundamental I</option>
+              <option value="fundamental-2">Fundamental II</option>
+              <option value="medio">Ensino Médio</option>
+          </select>
+        </div>
+<div class="cadturma-campo">
+          <label for="nome-turma">Turma</label>
+
+          <input
+            type="text"
+            id="nome-turma"
+            name="turma"
+            placeholder="Ex.: 6º ano A"
+            autocomplete="off"
+          >
+        </div>
+        <div class="cadturma-campo">
+          <label for="periodo-turma">Período</label>
+
+          <select id="periodo-turma" name="periodo">
+            <option value="">Selecione</option>
+            <option value="manha">Manhã</option>
+            <option value="tarde">Tarde</option>
+           
+          </select>
+          <div class="cadturma-campo">
+              <label for="ano-turma">Ano letivo</label>
+
+            <input
+              type="number"
+              id="ano-turma"
+              name="ano_letivo"
+              min="2026"
+              max="2100"
+              step="1"
+              placeholder="Ex.: 2026"
+              required
+            >
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cadturma-acoes">
+        <!-- Ainda não salva nem adiciona uma linha -->
+        <button class="cadturma-adicionar" type="button" id="adicionar-turma">
+          + Adicionar turma
+        </button>
+      </div>
+      
+    </section>
+
+    <!-- Lista de turmas -->
+    <section
+      class="cadturma-cartao cadturma-listagem"
+      aria-labelledby="titulo-turmas"
+    >
+      <p id="mensagem-turma" role="status" aria-live="polite"></p>
+      <div class="cadturma-lista-topo">
+        <h2 id="titulo-turmas">Turmas adicionadas</h2>
+        <span class="cadturma-contador" id="contador-turmas">
+          Carregando...
+        </span>
+      </div>
+      <p id="mensagem-lista-turmas" role="status" aria-live="polite"></p>
+      <!-- Exemplos fixos: depois serão carregados do cadastro -->
+      <div
+        class="cadturma-rolagem"
+        role="region"
+        aria-label="Lista de turmas adicionadas"
+        tabindex="0"
+      >
+
+        <table class="cadturma-tabela">
+          <thead>
+            <tr>
+              <th scope="col">Turma</th>
+              <th scope="col">Ensino</th>
+              <th scope="col">Período</th>
+              <th scope="col">Ação</th>
+            </tr>
+          </thead>
+
+          <tbody id="lista-turmas">
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="cadturma-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+ <script type="module" src="../scripts/cadastrar-turma.js"></script>
+</body>
+</html>

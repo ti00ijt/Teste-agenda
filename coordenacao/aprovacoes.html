@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aprovação de mensagens | Colégio Global</title>
+
+  <link rel="stylesheet" href="../estilos/style.css">
+  <link rel="stylesheet" href="coordenacao.css">
+
+</head>
+
+<body  class= "tela-turma" data-perfil="coordenacao">
+   
+  <main class="turma-container turma-conteudo">
+
+    <nav aria-label="Navegação">
+      <a class="envio-cancelar" href="coordenacao.html">
+        ← Voltar para a coordenação
+      </a>
+    </nav>
+
+    <section
+      class="turma-abertura"
+      aria-labelledby="titulo-aprovacoes"
+    >
+      <div class="turma-identificacao">
+        <p class="turma-categoria">ÁREA ADMINISTRATIVA</p>
+
+        <h1 id="titulo-aprovacoes">
+          Aprovação de mensagens
+        </h1>
+
+        <p id="descricao-aprovacoes">
+          Confira as mensagens encaminhadas pelos professores.
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="turma-historico"
+      aria-labelledby="titulo-lista-pendentes"
+    >
+      <header class="turma-historico-topo">
+        <div>
+          <h2 id="titulo-lista-pendentes">
+            Aguardando aprovação
+          </h2>
+
+          <p>Organizadas da mais recente para a mais antiga.</p>
+        </div>
+
+        <span
+          class="turma-quantidade"
+          id="quantidade-pendentes">
+          
+        </span>
+      </header>
+
+      <p
+        id="mensagem-lista-pendentes"
+        role="status"
+        aria-live="polite">
+        A listagem será conectada no próximo passo.
+      </p>
+
+      <div
+        class="turma-rolagem"
+        role="region"
+        aria-label="Mensagens aguardando aprovação"
+        tabindex="0"
+      >
+        <table class="turma-tabela">
+
+          <thead>
+            <tr>
+              <th scope="col">Data de envio</th>
+              <th scope="col">Professor</th>
+              <th scope="col">Turma / Matéria</th>
+              <th scope="col">Destinatário</th>
+              <th scope="col">Mensagem</th>
+              <th scope="col">Ação</th>
+            </tr>
+          </thead>
+
+          <tbody id="lista-mensagens-pendentes"></tbody>
+
+        </table>
+      </div>
+    </section>
+
+  </main>
+ <dialog
+  id="dialogo-analise"
+  class="analise-dialogo"
+  aria-labelledby="analise-titulo"
+>
+  <h2 id="analise-titulo">Analisar mensagem</h2>
+
+  <p id="analise-identificacao"></p>
+
+  <!-- Visualização da mensagem -->
+  <div id="analise-visualizacao">
+    <h3 id="analise-assunto"></h3>
+    <p id="analise-conteudo"></p>
+  </div>
+
+  <!-- Campos exibidos quando a edição for iniciada -->
+  <fieldset id="analise-edicao" hidden disabled>
+    <legend>Editar mensagem</legend>
+
+    <div class="envio-campo">
+      <label for="editar-titulo">Título</label>
+
+      <input
+        type="text"
+        id="editar-titulo"
+        maxlength="150"
+        required
+      >
+    </div>
+
+    <div class="envio-campo">
+      <label for="editar-conteudo">Mensagem</label>
+
+      <textarea
+        id="editar-conteudo"
+        rows="8"
+        maxlength="10000"
+        required
+      ></textarea>
+    </div>
+
+    <p>
+      Salvar alterações mantém a mensagem aguardando aprovação.
+    </p>
+
+    <div class="analise-acoes">
+      <button
+        type="button"
+        class="envio-botao"
+        id="salvar-edicao"
+      >
+        Salvar alterações
+      </button>
+
+      <button
+        type="button"
+        class="envio-botao"
+        id="cancelar-edicao"
+      >
+        Cancelar edição
+      </button>
+    </div>
+  </fieldset>
+
+  <p
+    id="resultado-analise"
+    role="status"
+    aria-live="polite"
+  ></p>
+
+  <div class="analise-acoes">
+    <!-- Será habilitado quando conectarmos o JavaScript. -->
+    <button
+      type="button"
+      class="envio-botao"
+      id="editar-mensagem"
+      disabled
+    >
+      Editar
+    </button>
+
+    <button
+      type="button"
+      class="envio-botao"
+      id="aprovar-mensagem"
+    >
+      Aprovar
+    </button>
+
+    <button
+      type="button"
+      class="envio-botao"
+      id="reprovar-mensagem"
+    >
+      Reprovar
+    </button>
+
+    <form method="dialog">
+      <button
+        type="submit"
+        class="envio-botao"
+        id="fechar-analise"
+      >
+        Fechar
+      </button>
+    </form>
+  </div>
+</dialog>
+
+  <footer class="materia-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+  <script
+  type="module"
+  src="../scripts/aprovacoes.js"
+></script>
+  <script
+    type="module"
+    src="../scripts/verificar-acesso.js"
+  ></script>
+
+</body>
+</html>

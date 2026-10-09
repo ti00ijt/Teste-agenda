@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Turmas da matéria | Colégio Global</title>
+
+  <link rel="stylesheet" href="../estilos/style.css">
+  
+</head>
+
+<body class="tela-materia" data-perfil="professor">
+
+  <!-- Cabeçalho -->
+  <header class="materia-cabecalho">
+    <div class="materia-container materia-topo">
+
+      <img
+        class="materia-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <nav class="materia-navegacao" aria-label="Navegação">
+        <a href="painel.professor.html">
+          ← Voltar
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="materia-container materia-conteudo">
+
+  <section
+      class="materia-apresentacao"
+      aria-labelledby="titulo-materia"
+    >
+      <p class="materia-categoria">ÁREA DO PROFESSOR</p>
+
+      <h1 id="titulo-materia">Carregando matéria...</h1>
+
+      <p class="materia-professor">
+        Professor:
+        <strong id="professor-da-materia">Carregando...</strong>
+      </p>
+
+      <p class="materia-descricao">
+        Selecione a turma que deseja acessar.
+      </p>
+    </section>
+
+    <section aria-labelledby="titulo-turmas">
+      <h2 class="materia-secao-titulo" id="titulo-turmas">
+        Minhas turmas
+      </h2>
+
+      <p id="mensagem-turmas-professor" role="status" aria-live="polite">
+        Carregando turmas...
+      </p>
+
+      <div class="materia-turmas" id="lista-turmas-professor"></div>
+    </section>
+
+  </main>
+  <footer class="materia-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+  <script type="module" src="../scripts/materia-professor.js"></script>
+</body>
+</html>

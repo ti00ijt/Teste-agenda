@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Histórico geral | Colégio Global</title>
+
+  <link rel="stylesheet" href="coordenacao.css">
+</head>
+
+<body class="tela-historico-geral">
+
+  <header class="histgeral-cabecalho">
+    <div class="histgeral-container histgeral-topo">
+      <img
+        src="../imagens/img.png"
+        alt="Colégio Global"
+        class="histgeral-logo"
+      >
+
+      <a href="coordenacao.html" class="histgeral-voltar">
+        Voltar
+      </a>
+    </div>
+  </header>
+
+  <main class="histgeral-container histgeral-conteudo">
+  <h1>Histórico geral</h1>
+
+  <p class="histgeral-introducao">
+    Consulte os avisos, bilhetes e tarefas enviados pelos professores.
+  </p>
+
+  <section
+    class="histgeral-filtro"
+    aria-labelledby="titulo-filtro"
+  >
+    <h2 id="titulo-filtro">Mensagens por turma</h2>
+
+    <label for="filtro-turma">Turma</label>
+
+    <select id="filtro-turma" name="turma" disabled>
+      <option value="todas">Todas as turmas</option>
+    </select>
+
+    <p
+      id="mensagem-filtro-turmas"
+      role="status"
+      aria-live="polite"
+    ></p>
+  </section>
+
+  <section
+    class="histgeral-painel"
+    aria-labelledby="titulo-historico"
+  >
+    <div class="histgeral-painel-topo">
+      <div>
+        <h2 id="titulo-historico">Mensagens enviadas</h2>
+
+        <p>
+          Aguardando aprovação, aprovadas e reprovadas,
+          da mais recente para a mais antiga.
+        </p>
+      </div>
+
+      <span
+        class="histgeral-contador"
+        id="quantidade-historico"
+      >
+        —
+      </span>
+    </div>
+
+    <p
+      id="mensagem-historico"
+      role="status"
+      aria-live="polite"
+    >
+      A listagem será conectada no próximo passo.
+    </p>
+
+    <ol
+      class="histgeral-lista"
+      id="lista-historico"
+    ></ol>
+  </section>
+</main>
+  <footer class="histgeral-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+  <script
+  type="module"
+  src="../scripts/historico-geral.js"
+></script>
+</body>
+</html>

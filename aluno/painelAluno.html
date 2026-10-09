@@ -1,0 +1,83 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do aluno | Colégio Global</title>
+  <link rel="stylesheet" href="../estilos/style.css">
+  <style>
+  body[data-perfil]:not([data-acesso="liberado"]) {
+    visibility: hidden;
+  }
+</style>
+</head>
+<body class="painel-aluno" data-perfil="aluno">
+  <a class="pa-pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="pa-topo">
+    <div class="pa-topo-interno">
+      <img class="pa-logo" src="../imagens/img.png" alt="Colégio Global — Educação unitária">
+      <!-- Apenas retorna ao login. Quando houver autenticação, implemente o logout real. -->
+      <a id="botao-sair" class="pa-sair" href="../index.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v16h5M14 8l4 4-4 4M8 12h10"/></svg>
+        Sair
+      </a>
+    </div>
+  </header>
+
+  <main class="pa-conteudo" id="conteudo">
+    <div class="pa-apresentacao">
+      <p class="pa-sobretitulo">ÁREA DO ALUNO</p>
+      <h1>Agenda escolar</h1>
+      <p>Acompanhe as informações do dia a dia do seu filho no colégio.</p>
+    </div>
+
+    <section class="pa-perfil" aria-label="Dados do aluno">
+      <span class="pa-avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg>
+      </span>
+      <!-- Substitua os dados de exemplo pelos dados do aluno autenticado. -->
+      <h1>Aluno(a): <span id="nome-aluno-painel">carregando...</span>!</h1>
+      <p class="turminha" id="turma-aluno-painel">Carregando turma...</p>
+      <p id="mensagem-painel" role="status" aria-live="polite"></p>
+      <!--<div class="pa-turma"><span>Turma</span><strong>6A</strong></div>-->
+    </section>
+
+    <h2 class="pa-secao-titulo">O que você deseja acessar?</h2>
+    <!-- Ajuste os href caso suas páginas tenham outros nomes. -->
+    <nav class="pa-opcoes" aria-label="Agenda escolar">
+      <a class="pa-opcao" href="tarefa.html">
+        <span class="pa-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="16" rx="2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m8 13 2 2 5-5M9 18h6"/></svg></span>
+        <h3>Tarefa</h3>
+        <p>Consulte suas atividades e os prazos de entrega.</p>
+        <span class="pa-acessar">Acessar tarefas <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="pa-opcao" href="aviso.html">
+        <span class="pa-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 10 14-5v14L4 14ZM4 10v4H2v-4M7 15l1 6h4l-2-5M21 9v6"/></svg></span>
+        <h3>Aviso</h3>
+        <p>Fique por dentro dos comunicados do colégio.</p>
+        <span class="pa-acessar">Ver avisos <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="pa-opcao" href="bilhete.html">
+        <span class="pa-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <h3>Bilhete</h3>
+        <p>Acesse os bilhetes e acompanhe as mensagens.</p>
+        <span class="pa-acessar">Ler bilhetes <span aria-hidden="true">→</span></span>
+      </a>
+    </nav>
+  </main>
+  <footer class="pa-rodape">Colégio Global <span aria-hidden="true">•</span> Educação unitária</footer>
+
+  <script type="module" src="../scripts/verificar-acesso.js"></script>
+  <script type="module" src="../scripts/painel-aluno.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,2187 @@
+/* Estilos exclusivos da coordenação */
+body.tela-coordenacao {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.tela-coordenacao *,
+.tela-coordenacao *::before,
+.tela-coordenacao *::after {
+  box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.tela-coordenacao .coord-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 100px;
+  padding: 16px 32px;
+  background: #fff;
+}
+
+.tela-coordenacao .coord-logo {
+  display: block;
+  width: 240px;
+  max-width: 65%;
+  height: auto;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.tela-coordenacao .coord-sair {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 24px;
+  border: 1px solid #f38c8c;
+  color: #fa8989;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tela-coordenacao .coord-sair:hover {
+  background: #ffffff;
+  color: #c8102e;
+}
+
+/* Menu à esquerda e conteúdo à direita */
+.tela-coordenacao .coord-layout {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+}
+
+/* Menu fechado */
+.tela-coordenacao .coord-menu {
+  flex-shrink: 0;
+  width: 96px;
+  background: #333333;
+  color: #ffffff;
+}
+
+/* Menu aberto */
+.tela-coordenacao .coord-menu[open] {
+  width: 250px;
+}
+
+.tela-coordenacao .coord-menu-controle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 68px;
+  padding: 20px 16px;
+  border-bottom: 1px solid #555555;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Remove a seta padrão do details */
+.tela-coordenacao .coord-menu-controle::-webkit-details-marker {
+  display: none;
+}
+
+.tela-coordenacao .coord-menu-controle:hover {
+  background: #444444;
+}
+
+/* Desenho do ícone de três linhas */
+.tela-coordenacao .coord-hamburguer {
+  display: grid;
+  gap: 5px;
+  width: 22px;
+  flex-shrink: 0;
+}
+
+.tela-coordenacao .coord-hamburguer span {
+  display: block;
+  height: 2px;
+  background: #ffffff;
+}
+
+/* Links do menu */
+.tela-coordenacao .coord-menu-links {
+  padding: 10px 12px 24px;
+}
+
+.tela-coordenacao .coord-menu-titulo {
+  margin: 24px 12px 10px;
+  color: #cccccc;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.tela-coordenacao .coord-menu-links a {
+  display: block;
+  min-height: 46px;
+  padding: 12px;
+  border-left: 3px solid transparent;
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.tela-coordenacao .coord-menu-links a:hover {
+  border-left-color: #c8102e;
+  background: #484848;
+}
+
+/* Área principal */
+.tela-coordenacao .coord-conteudo {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.tela-coordenacao .coord-apresentacao {
+  padding: 30px;
+  border: 1px solid #dddddd;
+  border-left: 6px solid #c8102e;
+  background: #ffffff;
+}
+
+.tela-coordenacao .coord-categoria {
+  margin: 0 0 12px;
+  color: #666666;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.tela-coordenacao .coord-apresentacao h1 {
+  margin: 0;
+  color: #c8102e;
+  font-size: 34px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.tela-coordenacao .coord-apresentacao > p:last-child {
+  margin: 14px 0 0;
+  color: #666666;
+  font-size: 15px;
+}
+
+/* Título das categorias */
+.tela-coordenacao .coord-secao-topo {
+  margin: 32px 0 22px;
+}
+
+.tela-coordenacao .coord-secao-topo h2 {
+  margin: 0;
+  padding-left: 14px;
+  border-left: 4px solid #c8102e;
+  font-size: 22px;
+}
+
+.tela-coordenacao .coord-secao-topo p {
+  margin: 8px 0 0 18px;
+  color: #666666;
+  font-size: 13px;
+}
+
+/* Cartões: tarefa, aviso e bilhete */
+.tela-coordenacao .coord-categorias {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tela-coordenacao .coord-cartao {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid #dddddd;
+  border-top: 4px solid #c8102e;
+  background: #ffffff;
+  color: #333333;
+  text-decoration: none;
+}
+
+.tela-coordenacao .coord-cartao:hover {
+  border-color: #c8102e;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 6%);
+}
+
+.tela-coordenacao .coord-pendencia {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 7px;
+  padding: 6px 10px;
+  background: #fff5d6;
+  color: #735008;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tela-coordenacao .coord-cartao h3 {
+  margin: 22px 0 10px;
+  font-size: 26px;
+}
+
+.tela-coordenacao .coord-cartao p {
+  margin: 0 0 24px;
+  color: #666666;
+  font-size: 14px;
+}
+
+.tela-coordenacao .coord-acessar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #dddddd;
+  color: #c8102e;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Acesso ao histórico geral */
+.tela-coordenacao .coord-historico {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 28px;
+  padding: 26px;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #005477;
+  background: #ffffff;
+  color: #333333;
+  text-decoration: none;
+}
+
+.tela-coordenacao .coord-historico:hover {
+  background: #edf4f7;
+}
+
+.tela-coordenacao .coord-historico h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.tela-coordenacao .coord-historico p {
+  margin: 8px 0 0;
+  color: #666666;
+  font-size: 14px;
+}
+
+.tela-coordenacao .coord-historico-acao {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: #005477;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Navegação pelo teclado */
+.tela-coordenacao a:focus-visible,
+.tela-coordenacao summary:focus-visible {
+  outline: 3px solid #005477;
+  outline-offset: 3px;
+}
+
+.tela-coordenacao .coord-menu a:focus-visible,
+.tela-coordenacao .coord-menu summary:focus-visible,
+.tela-coordenacao .coord-sair:focus-visible {
+  outline-color: #ffffff;
+  outline-offset: -4px;
+}
+
+/* Rodapé */
+.tela-coordenacao .coord-rodape {
+  padding: 24px;
+  border-top: 4px solid #c8102e;
+  background: #333333;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .tela-coordenacao .coord-categorias {
+    grid-template-columns: 1fr;
+  }
+
+  .tela-coordenacao .coord-historico {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Celular: menu fica acima do conteúdo */
+@media (max-width: 700px) {
+  .tela-coordenacao .coord-cabecalho {
+    padding: 16px;
+  }
+
+  .tela-coordenacao .coord-layout {
+    flex-direction: column;
+  }
+
+  .tela-coordenacao .coord-menu,
+  .tela-coordenacao .coord-menu[open] {
+    width: 100%;
+  }
+
+  .tela-coordenacao .coord-conteudo {
+    padding: 24px 16px;
+  }
+
+  .tela-coordenacao .coord-apresentacao {
+    padding: 24px;
+  }
+
+  .tela-coordenacao .coord-apresentacao h1 {
+    font-size: 28px;
+  }
+}
+/* Estilos exclusivos desta página */
+/* Estilos exclusivos desta página */
+/* Estilos exclusivos desta página */
+/* Estilos exclusivos desta página */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.tela-cadastro-professor {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.tela-cadastro-professor *,
+.tela-cadastro-professor *::before,
+.tela-cadastro-professor *::after {
+  box-sizing: border-box;
+}
+
+.tela-cadastro-professor .cadprof-container {
+  width: min(100% - 32px, 1140px);
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+.tela-cadastro-professor .cadprof-cabecalho {
+  background: #fff;
+}
+
+.tela-cadastro-professor .cadprof-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 100px;
+  padding: 16px 0;
+}
+
+.tela-cadastro-professor .cadprof-logo {
+  display: block;
+  width: 240px;
+  max-width: 50%;
+  height: auto;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.tela-cadastro-professor .cadprof-navegacao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tela-cadastro-professor .cadprof-navegacao a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #e28787;
+  color: #e79191;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tela-cadastro-professor .cadprof-navegacao a:hover {
+  background: #ffffff;
+  color: #c8102e;
+}
+
+/* Conteúdo e título */
+.tela-cadastro-professor .cadprof-conteudo {
+  flex: 1;
+  padding: 36px 0 60px;
+}
+
+.tela-cadastro-professor .cadprof-apresentacao {
+  margin-bottom: 28px;
+}
+
+.tela-cadastro-professor .cadprof-categoria {
+  margin: 0 0 10px;
+  color: #666666;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.tela-cadastro-professor .cadprof-apresentacao h1 {
+  margin: 0;
+  color: #c8102e;
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+.tela-cadastro-professor .cadprof-apresentacao > p:last-child {
+  margin: 12px 0 0;
+  color: #666666;
+  font-size: 15px;
+}
+
+/* Cadastro maior à esquerda e lista à direita */
+.tela-cadastro-professor .cadprof-colunas {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.tela-cadastro-professor .cadprof-cartao {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid #dddddd;
+  border-top: 4px solid #c8102e;
+  background: #ffffff;
+}
+
+.tela-cadastro-professor .cadprof-cartao h2 {
+  margin: 0 0 20px;
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+/* Nome e código */
+.tela-cadastro-professor .cadprof-campos {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.tela-cadastro-professor .cadprof-campo {
+  min-width: 0;
+}
+
+.tela-cadastro-professor .cadprof-campo label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tela-cadastro-professor .cadprof-campo input,
+.tela-cadastro-professor .cadprof-campo select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #aaaaaa;
+  border-radius: 0;
+  background: #ffffff;
+  color: #333333;
+  font: inherit;
+}
+
+.tela-cadastro-professor .cadprof-campo input::placeholder {
+  color: #707070;
+}
+
+/* Matérias */
+.tela-cadastro-professor .cadprof-materias {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #dddddd;
+}
+
+.tela-cadastro-professor .cadprof-materias h2 {
+  margin-bottom: 8px;
+}
+
+.tela-cadastro-professor .cadprof-orientacao {
+  margin: 0 0 20px;
+  color: #666666;
+  font-size: 13px;
+}
+
+.tela-cadastro-professor .cadprof-selecao {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tela-cadastro-professor .cadprof-selecao .cadprof-campo {
+  flex: 1 1 200px;
+}
+
+/* Aparência comum dos botões */
+.tela-cadastro-professor .cadprof-adicionar,
+.tela-cadastro-professor .cadprof-finalizar,
+.tela-cadastro-professor .cadprof-cancelar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 18px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tela-cadastro-professor .cadprof-adicionar {
+  border: 1px solid #005477;
+  background: #ffffff;
+  color: #005477;
+}
+
+.tela-cadastro-professor .cadprof-adicionar:hover {
+  background: #edf4f7;
+}
+
+.tela-cadastro-professor .cadprof-vinculadas {
+  margin-top: 22px;
+  padding: 18px;
+  background: #f7f7f7;
+}
+
+.tela-cadastro-professor .cadprof-vinculadas h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.tela-cadastro-professor .cadprof-vazio {
+  margin: 0;
+  color: #666666;
+  font-size: 13px;
+}
+
+/* Ações finais */
+.tela-cadastro-professor .cadprof-acoes {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #dddddd;
+}
+
+.tela-cadastro-professor .cadprof-cancelar {
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  color: #444444;
+}
+
+.tela-cadastro-professor .cadprof-cancelar:hover {
+  background: #f1f1f1;
+}
+
+.tela-cadastro-professor .cadprof-finalizar {
+  border: 1px solid #c8102e;
+  background: #c8102e;
+  color: #ffffff;
+}
+
+.tela-cadastro-professor .cadprof-finalizar:hover {
+  background: #a50d26;
+}
+
+/* Lista lateral */
+.tela-cadastro-professor .cadprof-painel-lista {
+  border-top-color: #005477;
+}
+
+.tela-cadastro-professor .cadprof-lista-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tela-cadastro-professor .cadprof-lista-topo h2 {
+  margin-bottom: 12px;
+}
+
+.tela-cadastro-professor .cadprof-contador {
+  padding: 3px 10px;
+  background: #edf4f7;
+  color: #005477;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.tela-cadastro-professor .cadprof-lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tela-cadastro-professor .cadprof-professor {
+  padding: 20px 0;
+  border-top: 1px solid #dddddd;
+}
+
+.tela-cadastro-professor .cadprof-professor:last-child {
+  padding-bottom: 0;
+}
+
+.tela-cadastro-professor .cadprof-professor h3 {
+  margin: 0;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.tela-cadastro-professor .cadprof-codigo {
+  margin: 5px 0 12px;
+  color: #666666;
+  font-size: 12px;
+}
+
+.tela-cadastro-professor .cadprof-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tela-cadastro-professor .cadprof-etiquetas li {
+  padding: 4px 9px;
+  background: #f0f0f0;
+  color: #444444;
+  font-size: 12px;
+}
+
+/* Navegação pelo teclado */
+.tela-cadastro-professor a:focus-visible,
+.tela-cadastro-professor button:focus-visible,
+.tela-cadastro-professor input:focus-visible,
+.tela-cadastro-professor select:focus-visible {
+  outline: 3px solid #005477;
+  outline-offset: 3px;
+}
+
+.tela-cadastro-professor .cadprof-navegacao a:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* Rodapé */
+.tela-cadastro-professor .cadprof-rodape {
+  padding: 24px;
+  border-top: 4px solid #c8102e;
+  background: #333333;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Telas menores */
+@media (max-width: 850px) {
+  .tela-cadastro-professor .cadprof-colunas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .tela-cadastro-professor .cadprof-topo {
+    flex-wrap: wrap;
+  }
+
+  .tela-cadastro-professor .cadprof-logo {
+    max-width: 100%;
+    width: 210px;
+  }
+
+  .tela-cadastro-professor .cadprof-cartao {
+    padding: 22px;
+  }
+
+  .tela-cadastro-professor .cadprof-campos {
+    grid-template-columns: 1fr;
+  }
+
+  .tela-cadastro-professor .cadprof-acoes {
+    flex-direction: column-reverse;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos exclusivos do cadastro de turmas */
+body.tela-cadastro-turma {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.tela-cadastro-turma *,
+.tela-cadastro-turma *::before,
+.tela-cadastro-turma *::after {
+  box-sizing: border-box;
+}
+
+.tela-cadastro-turma .cadturma-container {
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+.tela-cadastro-turma .cadturma-cabecalho {
+  background: #fff;
+}
+
+.tela-cadastro-turma .cadturma-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 100px;
+  padding: 16px 0;
+}
+
+.tela-cadastro-turma .cadturma-logo {
+  display: block;
+  width: 240px;
+  max-width: 50%;
+  height: auto;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.tela-cadastro-turma .cadturma-navegacao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tela-cadastro-turma .cadturma-navegacao a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #e98d8d;
+  color: #fa8c8c;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tela-cadastro-turma .cadturma-navegacao a:hover {
+  background: #ffffff;
+  color: #c8102e;
+}
+
+/* Conteúdo */
+.tela-cadastro-turma .cadturma-conteudo {
+  flex: 1;
+  padding: 36px 0 60px;
+}
+
+.tela-cadastro-turma .cadturma-apresentacao {
+  margin-bottom: 28px;
+}
+
+.tela-cadastro-turma .cadturma-categoria {
+  margin: 0 0 10px;
+  color: #666666;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.tela-cadastro-turma .cadturma-apresentacao h1 {
+  margin: 0;
+  color: #c8102e;
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+.tela-cadastro-turma .cadturma-apresentacao > p:last-child {
+  margin: 12px 0 0;
+  color: #666666;
+  font-size: 15px;
+}
+
+/* Cartões */
+.tela-cadastro-turma .cadturma-cartao {
+  padding: 28px;
+  border: 1px solid #dddddd;
+  border-top: 4px solid #c8102e;
+  background: #ffffff;
+}
+
+.tela-cadastro-turma .cadturma-cartao h2 {
+  margin: 0 0 22px;
+  font-size: 21px;
+}
+
+/* Campos lado a lado */
+.tela-cadastro-turma .cadturma-campos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tela-cadastro-turma .cadturma-campo {
+  min-width: 0;
+}
+
+.tela-cadastro-turma .cadturma-campo label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tela-cadastro-turma .cadturma-campo input,
+.tela-cadastro-turma .cadturma-campo select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #aaaaaa;
+  border-radius: 0;
+  background: #ffffff;
+  color: #333333;
+  font: inherit;
+}
+
+.tela-cadastro-turma .cadturma-campo input::placeholder {
+  color: #707070;
+}
+
+/* Botão de adicionar */
+.tela-cadastro-turma .cadturma-acoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.tela-cadastro-turma .cadturma-adicionar {
+  min-height: 48px;
+  padding: 12px 24px;
+  border: 1px solid #c8102e;
+  background: #c8102e;
+  color: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tela-cadastro-turma .cadturma-adicionar:hover {
+  background: #a50d26;
+}
+
+/* Lista inferior */
+.tela-cadastro-turma .cadturma-listagem {
+  margin-top: 28px;
+  border-top-color: #005477;
+}
+
+.tela-cadastro-turma .cadturma-lista-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tela-cadastro-turma .cadturma-lista-topo h2 {
+  margin: 0;
+}
+
+.tela-cadastro-turma .cadturma-contador {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  background: #edf4f7;
+  color: #005477;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Permite rolagem horizontal no celular */
+.tela-cadastro-turma .cadturma-rolagem {
+  overflow-x: auto;
+}
+
+.tela-cadastro-turma .cadturma-tabela {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.tela-cadastro-turma .cadturma-tabela thead th {
+  padding: 14px 16px;
+  background: #f1f1f1;
+  color: #555555;
+  font-size: 12px;
+}
+
+.tela-cadastro-turma .cadturma-tabela tbody th,
+.tela-cadastro-turma .cadturma-tabela td {
+  padding: 16px;
+  border-bottom: 1px solid #eeeeee;
+  vertical-align: middle;
+}
+
+.tela-cadastro-turma .cadturma-tabela tbody tr:hover {
+  background: #fafafa;
+}
+
+/* Excluir com ícone de lixeira */
+.tela-cadastro-turma .cadturma-excluir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #e6b7bf;
+  background: #ffffff;
+  color: #a71930;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.tela-cadastro-turma .cadturma-excluir:hover {
+  background: #fce8eb;
+}
+
+.tela-cadastro-turma .cadturma-excluir svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Navegação pelo teclado */
+.tela-cadastro-turma a:focus-visible,
+.tela-cadastro-turma button:focus-visible,
+.tela-cadastro-turma input:focus-visible,
+.tela-cadastro-turma select:focus-visible,
+.tela-cadastro-turma .cadturma-rolagem:focus-visible {
+  outline: 3px solid #005477;
+  outline-offset: 3px;
+}
+
+.tela-cadastro-turma .cadturma-navegacao a:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* Rodapé */
+.tela-cadastro-turma .cadturma-rodape {
+  padding: 24px;
+  border-top: 4px solid #c8102e;
+  background: #333333;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Celular */
+@media (max-width: 700px) {
+  .tela-cadastro-turma .cadturma-campos {
+    grid-template-columns: 1fr;
+  }
+
+  .tela-cadastro-turma .cadturma-cartao {
+    padding: 22px;
+  }
+
+  .tela-cadastro-turma .cadturma-topo {
+    flex-wrap: wrap;
+  }
+
+  .tela-cadastro-turma .cadturma-logo {
+    width: 210px;
+    max-width: 100%;
+  }
+
+  .tela-cadastro-turma .cadturma-lista-topo {
+    flex-wrap: wrap;
+  }
+
+  .tela-cadastro-turma .cadturma-adicionar {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+/* TELA DE CADASTRO DO ALUNO */
+
+.tela-cadastro-aluno,
+.tela-cadastro-aluno * {
+  box-sizing: border-box;
+}
+
+.tela-cadastro-aluno {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  color: #333;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.tela-cadastro-aluno .cadaluno-container {
+  width: min(1100px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* Cabeçalho */
+
+.tela-cadastro-aluno .cadaluno-cabecalho {
+  background: #fff;
+}
+
+.tela-cadastro-aluno .cadaluno-topo {
+  min-height: 100px;
+  padding-block: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tela-cadastro-aluno .cadaluno-logo {
+  display: block;
+  width: 240px;
+  max-width: 60%;
+  height: auto;
+  padding: 10px;
+  background: #fff;
+}
+
+.tela-cadastro-aluno .cadaluno-voltar {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 22px;
+  border: 1px solid #f39e9e;
+  color: #e28686;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tela-cadastro-aluno .cadaluno-voltar:hover {
+  background: #fff;
+  color: #c8102e;
+}
+
+/* Conteúdo e seleção da turma */
+
+.tela-cadastro-aluno .cadaluno-conteudo {
+  flex: 1;
+  padding-block: 36px 60px;
+}
+
+.tela-cadastro-aluno h1 {
+  margin: 0 0 8px;
+  color: #c8102e;
+  font-size: 32px;
+}
+
+.tela-cadastro-aluno .cadaluno-descricao {
+  margin: 0 0 28px;
+  color: #666;
+}
+
+.tela-cadastro-aluno .cadaluno-selecao {
+  margin-bottom: 24px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: 4px solid #c8102e;
+}
+
+.tela-cadastro-aluno h2 {
+  margin: 0 0 12px;
+  font-size: 21px;
+}
+
+.tela-cadastro-aluno label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tela-cadastro-aluno input,
+.tela-cadastro-aluno select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  background: #fff;
+  color: #333;
+  font: inherit;
+}
+
+.tela-cadastro-aluno .cadaluno-selecao select {
+  max-width: 560px;
+}
+
+/* Cadastro e lista lado a lado */
+
+.tela-cadastro-aluno .cadaluno-colunas {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.tela-cadastro-aluno .cadaluno-cartao {
+  min-width: 0;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: 4px solid #c8102e;
+}
+
+.tela-cadastro-aluno .cadaluno-texto {
+  margin: 0 0 24px;
+  color: #666;
+  font-size: 14px;
+}
+
+.tela-cadastro-aluno .cadaluno-campo {
+  margin-bottom: 22px;
+}
+
+.tela-cadastro-aluno .cadaluno-campo small {
+  display: block;
+  margin-top: 6px;
+  color: #666;
+  font-size: 13px;
+}
+
+.tela-cadastro-aluno .cadaluno-acoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+
+.tela-cadastro-aluno .cadaluno-cadastrar {
+  min-height: 48px;
+  padding: 12px 24px;
+  border: 1px solid #c8102e;
+  background: #c8102e;
+  color: #fff;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tela-cadastro-aluno .cadaluno-cadastrar:hover {
+  background: #a60d26;
+  border-color: #a60d26;
+}
+
+/* Alunos cadastrados */
+
+.tela-cadastro-aluno .cadaluno-listagem {
+  border-top-color: #005477;
+}
+
+.tela-cadastro-aluno .cadaluno-lista-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.tela-cadastro-aluno .cadaluno-lista-topo h2 {
+  margin: 0;
+}
+
+.tela-cadastro-aluno .cadaluno-contador {
+  padding: 5px 10px;
+  background: #eaf3f7;
+  color: #005477;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.tela-cadastro-aluno .cadaluno-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tela-cadastro-aluno .cadaluno-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 18px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tela-cadastro-aluno .cadaluno-item:last-child {
+  border-bottom: 0;
+}
+
+.tela-cadastro-aluno .cadaluno-dados {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tela-cadastro-aluno .cadaluno-dados h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.tela-cadastro-aluno .cadaluno-dados p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.tela-cadastro-aluno .cadaluno-excluir {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #e6b4be;
+  background: #fff;
+  color: #b00e28;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tela-cadastro-aluno .cadaluno-excluir:hover {
+  background: #fff0f3;
+}
+
+/* Navegação por teclado */
+
+.tela-cadastro-aluno :is(input, select, button, a):focus-visible {
+  outline: 3px solid #005477;
+  outline-offset: 3px;
+}
+
+.tela-cadastro-aluno .cadaluno-voltar:focus-visible {
+  outline-color: #fff;
+}
+
+/* Rodapé */
+
+.tela-cadastro-aluno .cadaluno-rodape {
+  padding: 24px 16px;
+  border-top: 4px solid #c8102e;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Celular */
+
+@media (max-width: 760px) {
+  .tela-cadastro-aluno .cadaluno-colunas {
+    grid-template-columns: 1fr;
+  }
+
+  .tela-cadastro-aluno .cadaluno-cartao,
+  .tela-cadastro-aluno .cadaluno-selecao {
+    padding: 20px;
+  }
+
+  .tela-cadastro-aluno h1 {
+    font-size: 28px;
+  }
+
+  .tela-cadastro-aluno .cadaluno-cadastrar {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HISTÓRICO GERAL */
+
+.tela-historico-geral,
+.tela-historico-geral * {
+  box-sizing: border-box;
+}
+
+.tela-historico-geral {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background: #f7f7f7;
+}
+
+.tela-historico-geral .histgeral-container {
+  width: min(1100px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* Cabeçalho */
+
+.tela-historico-geral .histgeral-cabecalho {
+  background: #fff;
+}
+
+.tela-historico-geral .histgeral-topo {
+  min-height: 100px;
+  padding-block: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tela-historico-geral .histgeral-logo {
+  display: block;
+  width: 240px;
+  max-width: 60%;
+  height: auto;
+  padding: 10px;
+  background: #fff;
+}
+
+.tela-historico-geral .histgeral-voltar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 22px;
+  border: 1px solid #ee8d8d;
+  color: #ed8585;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tela-historico-geral .histgeral-voltar:hover {
+  background: #fff;
+  color: #c8102e;
+}
+
+/* Título e filtro */
+
+.tela-historico-geral .histgeral-conteudo {
+  flex: 1;
+  padding-block: 36px 60px;
+}
+
+.tela-historico-geral h1 {
+  margin: 0 0 8px;
+  color: #c8102e;
+  font-size: 32px;
+}
+
+.tela-historico-geral .histgeral-introducao {
+  margin: 0 0 28px;
+  color: #666;
+}
+
+.tela-historico-geral h2 {
+  margin: 0 0 12px;
+  font-size: 21px;
+}
+
+.tela-historico-geral .histgeral-filtro {
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid #ddd;
+  border-top: 4px solid #c8102e;
+  background: #fff;
+}
+
+.tela-historico-geral .histgeral-filtro label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tela-historico-geral .histgeral-filtro select {
+  width: 100%;
+  max-width: 560px;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  background: #fff;
+  color: #333;
+  font: inherit;
+}
+
+/* Painel do histórico */
+
+.tela-historico-geral .histgeral-painel {
+  padding: 28px;
+  border: 1px solid #ddd;
+  border-top: 4px solid #005477;
+  background: #fff;
+}
+
+.tela-historico-geral .histgeral-painel-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tela-historico-geral .histgeral-painel-topo h2 {
+  margin-bottom: 4px;
+}
+
+.tela-historico-geral .histgeral-painel-topo p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.tela-historico-geral .histgeral-contador {
+  padding: 6px 12px;
+  color: #005477;
+  background: #eaf3f7;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.tela-historico-geral .histgeral-lista {
+  display: grid;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Mensagens */
+
+.tela-historico-geral .histgeral-mensagem {
+  padding: 24px;
+  border: 1px solid #ddd;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+
+.tela-historico-geral .histgeral-mensagem-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tela-historico-geral .histgeral-tipo {
+  padding: 4px 10px;
+  background: #eaf3f7;
+  color: #005477;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.tela-historico-geral .histgeral-mensagem time {
+  color: #666;
+  font-size: 13px;
+}
+
+.tela-historico-geral .histgeral-mensagem h3 {
+  margin: 0 0 18px;
+  font-size: 20px;
+}
+
+.tela-historico-geral .histgeral-dados {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 20px;
+}
+
+.tela-historico-geral .histgeral-dados dt {
+  font-size: 13px;
+  font-weight: bold;
+  color: #666;
+}
+
+.tela-historico-geral .histgeral-dados dd {
+  margin: 2px 0 0;
+  font-size: 14px;
+}
+
+.tela-historico-geral .histgeral-texto {
+  margin: 0 0 20px;
+  padding: 16px;
+  border-left: 3px solid #005477;
+  background: #f7f7f7;
+}
+
+/* Status da coordenação */
+
+.tela-historico-geral .histgeral-status-linha {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.tela-historico-geral .histgeral-status {
+  display: inline-block;
+  padding: 6px 10px;
+  font-weight: bold;
+}
+
+.tela-historico-geral .histgeral-status--pendente {
+  color: #745000;
+  background: #fff3cd;
+}
+
+.tela-historico-geral .histgeral-status--aprovado {
+  color: #236338;
+  background: #e6f4ea;
+}
+
+.tela-historico-geral .histgeral-status--reprovado {
+  color: #a0152c;
+  background: #fde9ed;
+}
+
+.tela-historico-geral .histgeral-observacao {
+  margin: 16px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Foco e rodapé */
+
+.tela-historico-geral select:focus-visible {
+  outline: 3px solid #005477;
+  outline-offset: 3px;
+}
+
+.tela-historico-geral .histgeral-voltar:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.tela-historico-geral .histgeral-rodape {
+  padding: 24px 16px;
+  border-top: 4px solid #c8102e;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Celular */
+
+@media (max-width: 700px) {
+  .tela-historico-geral h1 {
+    font-size: 28px;
+  }
+
+  .tela-historico-geral .histgeral-filtro,
+  .tela-historico-geral .histgeral-painel {
+    padding: 20px;
+  }
+
+  .tela-historico-geral .histgeral-mensagem {
+    padding: 16px;
+  }
+
+  .tela-historico-geral .histgeral-mensagem-topo {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Ações da coordenação no histórico */
+
+.tela-historico-geral .histgeral-moderacao {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.tela-historico-geral .histgeral-edicao {
+  margin-bottom: 20px;
+  border: 1px solid #c5d7df;
+}
+
+.tela-historico-geral .histgeral-edicao summary {
+  padding: 12px 16px;
+  background: #eaf3f7;
+  color: #005477;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tela-historico-geral .histgeral-edicao-campos {
+  padding: 16px;
+}
+
+.tela-historico-geral .histgeral-moderacao label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tela-historico-geral .histgeral-moderacao input,
+.tela-historico-geral .histgeral-moderacao textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  background: #fff;
+  color: #333;
+  font: inherit;
+}
+
+.tela-historico-geral .histgeral-edicao-campos input,
+.tela-historico-geral .histgeral-edicao-campos textarea {
+  margin-bottom: 16px;
+}
+
+.tela-historico-geral .histgeral-moderacao textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.tela-historico-geral .histgeral-botoes-decisao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.tela-historico-geral .histgeral-moderacao button {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tela-historico-geral .histgeral-salvar {
+  background: #005477;
+  color: #fff;
+}
+
+.tela-historico-geral .histgeral-aprovar {
+  background: #236338;
+  color: #fff;
+}
+
+.tela-historico-geral .histgeral-reprovar {
+  background: #fff;
+  color: #a0152c;
+  border-color: #a0152c !important;
+}
+
+.tela-historico-geral .histgeral-salvar:hover {
+  background: #003e59;
+}
+
+.tela-historico-geral .histgeral-aprovar:hover {
+  background: #184a29;
+}
+
+.tela-historico-geral .histgeral-reprovar:hover {
+  background: #fde9ed;
+}
+
+.tela-historico-geral .histgeral-moderacao
+:is(input, textarea, button, summary):focus-visible {
+  outline: 3px solid #005477;
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .tela-historico-geral .histgeral-botoes-decisao {
+    flex-direction: column;
+  }
+
+  .tela-historico-geral .histgeral-moderacao button {
+    width: 100%;
+  }
+}
+
+#janela-transferencia {
+  width: min(480px, calc(100% - 32px));
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  border: 1px solid #ddd;
+  border-top: 4px solid #c8102e;
+  color: #333;
+  background: #fff;
+  font-family: Arial, sans-serif;
+}
+
+#janela-transferencia::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+
+#janela-transferencia h2 {
+  margin: 0 0 16px;
+}
+
+#janela-transferencia label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#janela-transferencia select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  font: inherit;
+}
+
+#janela-transferencia .transferencia-acoes {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#janela-transferencia button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #aaa;
+  background: #fff;
+  color: #333;
+  font: inherit;
+  cursor: pointer;
+}
+
+#janela-transferencia #confirmar-transferencia {
+  border-color: #c8102e;
+  background: #c8102e;
+  color: #fff;
+}
+
+#janela-transferencia button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.tela-cadastro-aluno .cadaluno-acoes-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#lista-professores {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  display: grid;
+  gap: 12px;
+}
+
+#lista-professores .cadprof-registro {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #c8102e;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+#lista-professores .cadprof-registro h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: #333;
+}
+
+#lista-professores .cadprof-registro p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+#materias-selecionadas {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  display: grid;
+  gap: 8px;
+}
+
+#materias-selecionadas li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  background: #f7f7f7;
+  border-radius: 8px;
+}
+
+#materias-selecionadas span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#materias-selecionadas button {
+  border: 1px solid #c8102e;
+  border-radius: 6px;
+  padding: 6px 10px;
+  background: #fff;
+  color: #c8102e;
+  cursor: pointer;
+}
+
+#materias-vazias[hidden] {
+  display: none;
+}
+
+#adicionar-materia:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#janela-materia-professor {
+  width: min(440px, 90vw);
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  border: 0;
+  border-top: 5px solid #c8102e;
+  border-radius: 14px;
+  color: #333;
+  background: #fff;
+}
+
+#janela-materia-professor::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+
+#janela-materia-professor h2 {
+  margin-top: 0;
+}
+
+#janela-materia-professor select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.cadprof-vinculo-acoes {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cadprof-vinculo-acoes button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font: inherit;
+}
+
+#salvar-vinculo {
+  background: #c8102e;
+  border-color: #c8102e;
+  color: #fff;
+}
+
+.cadprof-vinculo-acoes button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#janela-turma-professor {
+  width: min(520px, 90vw);
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  border: 0;
+  border-top: 5px solid #c8102e;
+  border-radius: 14px;
+  color: #333;
+  background: #fff;
+}
+
+#janela-turma-professor::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+
+#janela-turma-professor h2 {
+  margin-top: 0;
+}
+
+#janela-turma-professor label {
+  display: block;
+  margin-top: 16px;
+}
+
+#janela-turma-professor select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font: inherit;
+}
+
+#salvar-turma-professor {
+  background: #c8102e;
+  border-color: #c8102e;
+  color: #fff;
+}
+
+.cadprof-materias-resumo {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.cadprof-materias-resumo strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #005477;
+}
+
+.cadprof-materias-resumo ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.cadprof-materias-resumo li {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.analise-dialogo {
+  width: min(640px, calc(100% - 32px));
+  max-height: 85vh;
+  box-sizing: border-box;
+  padding: 28px;
+  border: none;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #333333;
+  overflow-y: auto;
+}
+
+.analise-dialogo::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#analise-identificacao {
+  color: #666666;
+}
+
+#analise-conteudo {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.analise-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.analise-acoes form {
+  margin: 0;
+}
+
+.analise-acoes button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#analise-edicao {
+  min-width: 0;
+  margin: 20px 0;
+  padding: 0;
+  border: none;
+}
+
+#analise-edicao[hidden],
+#analise-visualizacao[hidden] {
+  display: none;
+}
+
+#analise-edicao legend {
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+#analise-edicao input,
+#analise-edicao textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 8px 0 16px;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font: inherit;
+}
+
+#analise-edicao textarea {
+  resize: vertical;
+}
+
+#analise-edicao input:focus,
+#analise-edicao textarea:focus {
+  outline: 2px solid #005477;
+  outline-offset: 2px;
+}

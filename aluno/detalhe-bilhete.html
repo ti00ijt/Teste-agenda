@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Ajusta a página para celular e computador -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Detalhes do bilhete | Colégio Global</title>
+
+  <!-- CSS que você já usa no projeto -->
+  <link rel="stylesheet" href="../estilos/style.css">
+
+  <!-- CSS específico desta tela -->
+
+</head>
+
+<body class="tela-detalhe">
+
+  <!-- Cabeçalho -->
+  <header class="detalhe-cabecalho">
+    <div class="detalhe-container detalhe-topo">
+
+      <img
+        class="detalhe-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <a class="detalhe-voltar" href="bilhete.html">
+        ← Voltar
+      </a>
+
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="detalhe-container detalhe-conteudo">
+
+    <p class="detalhe-caminho">
+      Agenda escolar / Bilhetes / Detalhes
+    </p>
+
+    <article class="detalhe-cartao">
+
+      <!-- Identificação da mensagem -->
+      <header class="detalhe-abertura">
+        <span class="detalhe-categoria">BILHETE</span>
+
+        <h1>Material para a próxima aula</h1>
+
+        <!-- Por enquanto, este aviso é apenas visual -->
+        <span class="detalhe-pendente">
+          Assinatura pendente
+        </span>
+      </header>
+
+      <!-- Informações sobre quem enviou -->
+      <dl class="detalhe-informacoes">
+
+        <div>
+          <dt>Enviado por</dt>
+          <dd>Professora Ana — exemplo</dd>
+        </div>
+
+        <div>
+          <dt>Matéria</dt>
+          <dd>Ciências</dd>
+        </div>
+
+        <div>
+          <dt>Data de envio</dt>
+          <dd>
+            <time datetime="2026-09-23">23/09/2026</time>
+          </dd>
+        </div>
+
+      </dl>
+
+      <!-- Texto do bilhete -->
+      <div class="detalhe-mensagem">
+        <p>Olá, família!</p>
+
+        <p>
+          Para a próxima aula de Ciências, pedimos que o aluno
+          traga o caderno, lápis de cor e uma folha de papel sulfite.
+        </p>
+
+        <p>
+          Utilizaremos esses materiais em uma atividade em sala.
+        </p>
+
+        <p>Agradecemos a colaboração!</p>
+      </div>
+
+      <!-- Ações disponíveis -->
+      <footer class="detalhe-acoes">
+        <p>
+          Após ler o bilhete, registre sua ciência.
+        </p>
+
+        <!-- Este link abrirá a tela de assinatura que faremos depois -->
+        <a class="detalhe-assinar" href="assinatura.html">
+          Assinar
+        </a>
+      </footer>
+
+    </article>
+
+  </main>
+
+  <footer class="detalhe-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+
+</body>
+</html>

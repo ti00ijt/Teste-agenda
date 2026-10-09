@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Cadastrar professor | Colégio Global</title>
+
+  <link rel="stylesheet" href="../estilos/style.css">
+  <link rel="stylesheet" href="coordenacao.css">
+</head>
+
+<body class="tela-cadastro-professor">
+
+  <!-- Cabeçalho -->
+  <header class="cadprof-cabecalho">
+    <div class="cadprof-container cadprof-topo">
+
+      <img
+        class="cadprof-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <nav class="cadprof-navegacao" aria-label="Navegação">
+        <a href="coordenacao.html">← Voltar</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="cadprof-container cadprof-conteudo">
+
+    <div class="cadprof-apresentacao">
+      <p class="cadprof-categoria">COORDENAÇÃO • CADASTROS</p>
+
+      <h1>Cadastrar professor</h1>
+
+      <p>
+        Informe os dados do professor e as matérias que ele leciona.
+      </p>
+    </div>
+
+    <!-- Duas colunas: cadastro e professores cadastrados -->
+    <div class="cadprof-colunas">
+
+      <!-- Coluna do cadastro -->
+      <section
+        class="cadprof-cartao"
+        aria-labelledby="titulo-cadastro"
+      >
+
+        <h2 id="titulo-cadastro">Dados do professor</h2>
+        <form id="form-cadastro-professor" onsubmit="event.preventDefault()">
+        <div class="cadprof-campos">
+
+          <div class="cadprof-campo">
+            <label for="nome-professor">Nome completo</label>
+
+            <input
+              type="text"
+              id="nome-professor"
+              name="nome"
+              placeholder="Digite o nome do professor"
+              autocomplete="off"
+              required
+            >
+          </div>
+
+          <div class="cadprof-campo">
+            <label for="codigo-professor">Código do professor</label>
+
+            <!-- Texto permite códigos com letras e zeros à esquerda -->
+            <input
+              type="text"
+              id="codigo-professor"
+              name="codigo"
+              placeholder="Ex.: PROF001"
+              autocomplete="off"
+              required
+            >
+          </div>
+
+        </div>
+
+        <!-- Seleção das matérias -->
+        <div class="cadprof-materias">
+
+          <h2>Matérias</h2>
+
+         <p class="cadprof-orientacao">
+           Adicione as matérias do professor.
+            Elas serão salvas ao finalizar o cadastro.
+         </p>
+          <div class="cadprof-selecao">
+
+            <div class="cadprof-campo">
+              <label for="materia-professor">Matéria</label>
+
+              <select id="materia-professor" name="materia" disabled>
+                <option value="">Carregando matérias...</option>
+              </select>
+
+<p id="mensagem-materias" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Ainda não adiciona itens -->
+            <button
+              class="cadprof-adicionar"
+              id="adicionar-materia"
+              type="button"
+              disabled
+            >
+              + Adicionar matéria
+            </button>
+
+          </div>
+
+        <div class="cadprof-vinculadas">
+          <h3>Matérias adicionadas</h3>
+
+          <p id="materias-vazias" class="cadprof-vazio">
+            Nenhuma matéria adicionada.
+          </p>
+
+          <ul id="materias-selecionadas"></ul>
+        </div>
+
+        </div>
+
+        <div class="cadprof-acoes">
+          <a class="cadprof-cancelar" href="coordenacao.html">
+            Cancelar
+          </a>
+          <p id="mensagem-professor" role="status" aria-live="polite"></p>
+          <!-- Ainda não salva o cadastro -->
+          <button
+                class="cadprof-finalizar"
+                id="cadastrar-professor"
+                type="submit"
+                disabled>
+            Carregando...
+          </button>
+        </div>
+        </form>
+      </section>
+     
+      <!-- Coluna dos professores cadastrados -->
+      <aside
+        class="cadprof-cartao cadprof-painel-lista"
+        aria-labelledby="titulo-professores"
+      >
+
+        <div class="cadprof-lista-topo">
+          <h2 id="titulo-professores">Professores cadastrados</h2>
+          <span class="cadprof-contador">3</span>
+        </div>
+
+        <p class="cadprof-orientacao">
+          Exemplos para visualização da lista.
+        </p>
+
+        <ul id="lista-professores" class="cadprof-lista">
+
+          <p
+            id="mensagem-lista-professores"
+            role="status"
+            aria-live="polite"
+          >
+            Carregando professores...
+          </p>
+        
+      </aside>
+      <dialog
+          id="janela-materia-professor"
+          aria-labelledby="titulo-vincular-materia"
+        >
+          <h2 id="titulo-vincular-materia">Adicionar matéria</h2>
+
+          <p id="professor-do-vinculo"></p>
+
+          <label for="materia-do-vinculo">Matéria</label>
+          <select id="materia-do-vinculo" disabled>
+            <option value="">Selecione uma matéria</option>
+          </select>
+
+          <p id="mensagem-vinculo" role="status" aria-live="polite"></p>
+
+          <div class="cadprof-vinculo-acoes">
+            <button type="button" id="cancelar-vinculo">Cancelar</button>
+            <button type="button" id="salvar-vinculo" disabled>
+              Adicionar
+            </button>
+  </div>
+</dialog>
+
+
+    </div>
+     
+  </main>
+  <dialog
+  id="janela-turma-professor"
+  aria-labelledby="titulo-turma-professor"
+>
+  <h2 id="titulo-turma-professor">Vincular turma</h2>
+
+    <p id="nome-professor-turma"></p>
+
+    <label for="vinculo-materia-professor">Matéria do professor</label>
+    <select id="vinculo-materia-professor" disabled></select>
+
+    <label for="turma-professor">Turma</label>
+    <select id="turma-professor" disabled></select>
+
+    <p id="mensagem-turma-professor" role="status" aria-live="polite"></p>
+
+    <div class="cadprof-vinculo-acoes">
+      <button type="button" id="fechar-turma-professor">
+        Fechar
+      </button>
+
+      <button type="button" id="salvar-turma-professor" disabled>
+        Vincular turma
+      </button>
+    </div>
+  </dialog>
+  <script type="module" src="../scripts/cadastrar-professor.js"></script>
+  <footer class="cadprof-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+ 
+</body>
+</html>

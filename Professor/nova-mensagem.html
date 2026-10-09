@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Nova mensagem | Colégio Global</title>
+
+  <link rel="stylesheet" href="../estilos/style.css">
+
+</head>
+
+<body class="tela-envio" data-perfil="professor" >
+
+  <header class="envio-cabecalho">
+    <div class="envio-container envio-topo">
+
+      <img
+        class="envio-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <nav class="envio-navegacao" aria-label="Navegação">
+        <a id="voltar-envio" href="painel.professor.html">← Voltar</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="envio-container envio-conteudo">
+
+    <section class="envio-cartao" aria-labelledby="titulo-pagina">
+
+      <p class="envio-categoria">ÁREA DO PROFESSOR</p>
+
+      <h1 id="titulo-pagina">Nova mensagem</h1>
+
+      <p class="envio-descricao">
+        Escolha os destinatários e escreva sua mensagem.
+      </p>
+
+      <!-- Informações fixas de exemplo -->
+    <dl class="envio-informacoes">
+  <div>
+    <dt>Professor</dt>
+    <dd id="envio-professor">Carregando...</dd>
+  </div>
+
+  <div>
+    <dt>Matéria</dt>
+    <dd id="envio-materia">Carregando...</dd>
+  </div>
+
+  <div>
+    <dt>Turma</dt>
+    <dd id="envio-turma">Carregando...</dd>
+  </div>
+</dl>
+
+<p id="mensagem-carregamento-envio" role="status" aria-live="polite">
+  Carregando dados...
+</p>
+      <!-- Destinatários -->
+      <fieldset class="envio-grupo" id="grupo-destinatarios" disabled>
+        <legend>Para quem será a mensagem?</legend>
+
+        <div class="envio-destinos">
+
+          <label class="envio-escolha">
+            <input
+              type="radio"
+              name="destino"
+              value="geral"
+              checked
+            >
+
+            <span>
+              <strong>Toda a turma</strong>
+              <small>Responsáveis de todos os alunos.</small>
+            </span>
+          </label>
+
+          <label class="envio-escolha">
+            <input
+              type="radio"
+              name="destino"
+              value="individual"
+            >
+
+            <span>
+              <strong>Alunos específicos</strong>
+              <small>Escolha um ou mais alunos.</small>
+            </span>
+          </label>
+
+        </div>
+      </fieldset>
+
+      <!-- Depois, este bloco aparecerá somente no envio individual -->
+      <fieldset
+        class="envio-grupo"
+        id="grupo-alunos"
+        hidden
+        disabled
+      >
+        <legend>Selecionar alunos</legend>
+
+        <p class="envio-orientacao">
+          Marque um ou mais alunos para receber a mensagem.
+        </p>
+
+        <div class="envio-lista-selecao" id="lista-alunos-envio"></div>
+
+        <p id="contador-alunos-envio" role="status" aria-live="polite">
+          Nenhum aluno selecionado.
+        </p>
+      </fieldset>
+
+      <!-- Conteúdo da mensagem -->
+      <div class="envio-campos">
+
+        <div class="envio-linha">
+
+          <div class="envio-campo">
+            <label for="tipo-mensagem">Tipo de mensagem</label>
+
+            <select id="tipo-mensagem" name="tipo">
+              <option value="">Selecione</option>
+              <option value="aviso">Aviso</option>
+              <option value="tarefa">Tarefa</option>
+              <option value="bilhete">Bilhete</option>
+            </select>
+          </div>
+
+          <div class="envio-campo">
+            <label for="prazo-mensagem">
+              Prazo da tarefa (opcional)
+            </label>
+
+            <input
+              type="date"
+              id="prazo-mensagem"
+              name="prazo"
+              aria-describedby="ajuda-prazo"
+            >
+
+            <small id="ajuda-prazo">
+              Preencha somente para tarefas com prazo de entrega.
+            </small>
+          </div>
+
+        </div>
+
+        <div class="envio-campo">
+          <label for="titulo-mensagem">Título</label>
+
+          <input
+            type="text"
+            id="titulo-mensagem"
+            name="titulo"
+            placeholder="Ex.: Material para a próxima aula"
+          >
+        </div>
+
+        <div class="envio-campo">
+          <label for="texto-mensagem">Mensagem</label>
+
+          <textarea
+            id="texto-mensagem"
+            name="mensagem"
+            rows="8"
+            placeholder="Escreva sua mensagem..."
+          ></textarea>
+        </div>
+
+        <div class="envio-acoes">
+         
+          <!-- Apenas visual: não envia nem salva -->
+          <a
+            class="envio-cancelar"
+            id="cancelar-envio"
+            href="painel.professor.html"
+          >
+            Cancelar
+          </a>
+
+            <button
+              class="envio-botao"
+              id="enviar-mensagem"
+              type="button"
+              disabled
+            >
+              Enviar para aprovação
+            </button>
+            </div>
+            <p id="resultado-envio" role="status" aria-live="polite"></p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="envio-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+  <script type="module" src="../scripts/nova-mensagem.js"></script>
+</body>
+</html>

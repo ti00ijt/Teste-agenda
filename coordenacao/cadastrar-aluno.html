@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cadastrar aluno | Colégio Global</title>
+
+  <link rel="stylesheet" href="coordenacao.css">
+</head>
+
+<body class="tela-cadastro-aluno"  data-perfil="coordenacao"></body>
+
+  <header class="cadaluno-cabecalho">
+    <div class="cadaluno-container cadaluno-topo">
+      <img
+        class="cadaluno-logo"
+        src="../imagens/img.png"
+        alt="Colégio Global"
+      >
+
+      <nav aria-label="Navegação">
+        <a href="coordenacao.html" class="cadaluno-voltar">
+          Voltar
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="cadaluno-container cadaluno-conteudo">
+
+    <h1>Cadastrar aluno</h1>
+    <p class="cadaluno-descricao">
+      Selecione a turma e preencha os dados do aluno.
+    </p>
+
+    <!-- Seleção da turma -->
+    <section class="cadaluno-selecao" aria-labelledby="titulo-turma">
+      <h2 id="titulo-turma">Turma</h2>
+
+      <label for="turma-aluno">Selecione a turma</label>
+
+      <select id="turma-aluno"
+        name="turma"
+        form="form-cadastro-aluno"
+        required
+        disabled>
+      <option value="">Carregando turmas...</option>
+      </select>
+
+    <p id="mensagem-turmas-aluno" role="status" aria-live="polite"></p> 
+    </section>
+
+    <div class="cadaluno-colunas">
+
+      <!-- Formulário de cadastro -->
+      <section class="cadaluno-cartao" aria-labelledby="titulo-cadastro">
+        <h2 id="titulo-cadastro">Dados do aluno</h2>
+
+        <p class="cadaluno-texto">
+          Informe o nome completo e o registro acadêmico.
+        </p>
+
+        <form id="form-cadastro-aluno" onsubmit="event.preventDefault(),alert('Adicione dados coerentes e cuidado para não Repetir RAs');">
+          <div class="cadaluno-campo">
+            <label for="nome-aluno">Nome completo</label>
+
+            <input
+              type="text"
+              id="nome-aluno"
+              name="nome"
+              placeholder="Digite o nome completo do aluno"
+              autocomplete="off"
+              required
+            >
+          </div>
+
+          <div class="cadaluno-campo">
+            <label for="ra-aluno">RA</label>
+
+            <input
+              type="text"
+              id="ra-aluno"
+              name="ra"
+              placeholder="Ex.: 000123"
+              autocomplete="off"
+              aria-describedby="ajuda-ra"
+              required>
+
+            <small id="ajuda-ra">
+              Número de registro acadêmico do aluno.
+            </small>
+          </div>
+
+          <div class="cadaluno-acoes">
+            <button id="cadastrar-aluno" type="submit" class="cadaluno-cadastrar" form="form-cadastro-aluno">
+
+              Cadastrar aluno
+            </button>
+           
+          </div>
+
+          <p id="mensagem-aluno" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <!-- Lista ilustrativa: será atualizada pela lógica futuramente -->
+      <section
+        class="cadaluno-cartao cadaluno-listagem"
+        aria-labelledby="titulo-lista">
+
+        <div class="cadaluno-lista-topo">
+          <h2 id="titulo-lista">Alunos cadastrados</h2>
+          <span class="cadaluno-contador" id="contador-alunos"></span>
+        </div>
+
+      <p class="cadaluno-texto">
+        Turma: <strong id="turma-da-lista">Nenhuma selecionada</strong>
+      </p>
+
+        <p id="mensagem-lista-alunos" role="status" aria-live="polite">
+          Selecione uma turma para consultar os alunos.
+        </p>
+
+        <ul class="cadaluno-lista" id="lista-alunos"></ul>
+      </section>
+
+    </div>
+  </main>
+    <dialog id="janela-transferencia" aria-labelledby="titulo-transferencia">
+      <h2 id="titulo-transferencia">Transferir aluno</h2>
+
+      <p id="aluno-transferencia"></p>
+
+      <label for="turma-destino">Turma de destino</label>
+      <select id="turma-destino" required></select>
+
+      <p id="mensagem-transferencia" role="status" aria-live="polite"></p>
+
+      <div class="transferencia-acoes">
+        <button type="button" id="cancelar-transferencia">
+          Cancelar
+        </button>
+
+        <button type="button" id="confirmar-transferencia">
+          Confirmar transferência
+        </button>
+      </div>
+    </dialog>
+  <footer class="cadaluno-rodape">
+    Colégio Global • Educação unitária
+  </footer>
+  <script type="module" src="../scripts/cadastrar-aluno.js"></script>
+  <script type="module" src="../scripts/verificar-acesso.js"></script>
+</body>
+</html>
