@@ -76,6 +76,9 @@ botao.textContent = "Finalizar cadastro";
 
 const listaProfessores = document.querySelector("#lista-professores");
 const contadorProfessores = document.querySelector("#contador-professores");
+const filtroProfessores = document.querySelector("#filtro-professores");
+const mensagemEstadoProfessor = document.querySelector("#mensagem-estado-professor");
+let alterandoEstadoProfessor = false;
 const mensagemLista = document.querySelector(
   "#mensagem-lista-professores"
 );
@@ -83,8 +86,8 @@ const mensagemLista = document.querySelector(
 let consultaAtual = 0;
 
 async function carregarProfessores() {
-  console.log("Iniciando consulta dos professos")
   const consulta = ++consultaAtual;
+  const ativos = filtroProfessores.value === "ativos";
 
   listaProfessores.replaceChildren();
   contadorProfessores.textContent = "—";
@@ -97,6 +100,7 @@ async function carregarProfessores() {
         id,
         nome,
         codigo,
+        ativo,
         professor_materias (
           materia:materias (
             nome
@@ -113,7 +117,7 @@ async function carregarProfessores() {
           )
         )
       `)
-      .eq("ativo", true)
+      .eq("ativo", ativos)
       .order("nome", { ascending: true });
       console.log("Resultado da consulta:", {
       quantidade: professores?.length,
@@ -125,7 +129,7 @@ async function carregarProfessores() {
 
     if (professores.length === 0) {
       contadorProfessores.textContent = "0";
-      mensagemLista.textContent = "Nenhum professor cadastrado.";
+      mensagemLista.textContent = ativos ? "Nenhum professor ativo cadastrado." : "Nenhum professor arquivado.";
       return;
     }
 
@@ -223,6 +227,9 @@ for (const vinculo of vinculosOrdenados) {
       codigoProfessor,
       materiasProfessor
     );
+    const acoesProfessor = document.createElement("div");
+    acoesProfessor.className = "cadprof-acoes-registro";
+    if (professor.ativo) {
       const adicionarMateria = document.createElement("button");
         adicionarMateria.type = "button";
         adicionarMateria.className = "cadprof-adicionar";
@@ -232,7 +239,7 @@ for (const vinculo of vinculosOrdenados) {
           abrirVinculoMateria(professor);
         });
 
-item.append(adicionarMateria);
+acoesProfessor.append(adicionarMateria);
   const vincularTurma = document.createElement("button");
   vincularTurma.type = "button";
   vincularTurma.className = "cadprof-adicionar";
@@ -242,12 +249,21 @@ item.append(adicionarMateria);
     abrirTurmasProfessor(professor);
   });
 
-item.append(vincularTurma, criarBotaoRedefinirSenha("professor", professor));
+acoesProfessor.append(vincularTurma, criarBotaoRedefinirSenha("professor", professor));
+    }
+    const botaoEstado = document.createElement("button");
+    botaoEstado.type = "button";
+    botaoEstado.className = professor.ativo ? "cadprof-arquivar" : "cadprof-reativar";
+    botaoEstado.textContent = professor.ativo ? "Arquivar professor" : "Reativar professor";
+    botaoEstado.setAttribute("aria-label", `${professor.ativo ? "Arquivar" : "Reativar"} ${professor.nome}, código ${professor.codigo}`);
+    botaoEstado.addEventListener("click", () => alterarEstadoProfessor(professor, botaoEstado));
+    acoesProfessor.append(botaoEstado);
+    item.append(acoesProfessor);
       listaProfessores.append(item);
     }
 
     mensagemLista.textContent =
-      `${professores.length} professor(es) cadastrado(s).`;
+      `${professores.length} professor(es) ${ativos ? "ativo(s)" : "arquivado(s)"}.`;
 
   } catch (erro) {
     if (consulta !== consultaAtual) return;
@@ -260,6 +276,39 @@ item.append(vincularTurma, criarBotaoRedefinirSenha("professor", professor));
   }
 }
 
+async function alterarEstadoProfessor(professor, controle) {
+  if (alterandoEstadoProfessor) return;
+  const reativar = !professor.ativo;
+  const acao = reativar ? "Reativar" : "Arquivar";
+  if (!window.confirm(`${acao} ${professor.nome}, código ${professor.codigo}?\n\n` +
+    (reativar ? "O perfil vinculado voltará a permitir acesso."
+      : "O acesso pelo perfil vinculado será desativado. Mensagens e vínculos serão preservados."))) return;
+  alterandoEstadoProfessor = true;
+  controle.disabled = true;
+  filtroProfessores.disabled = true;
+  mensagemEstadoProfessor.textContent = reativar ? "Reativando professor..." : "Arquivando professor...";
+  try {
+    const { data, error } = await supabase.rpc("alterar_estado_professor", {
+      p_professor_id: professor.id, p_ativo: reativar,
+    });
+    if (error) throw error;
+    if (data !== professor.id) throw new Error("Confirmação inesperada.");
+    mensagemEstadoProfessor.textContent = `${professor.nome}, código ${professor.codigo}, ${reativar ? "reativado" : "arquivado"} com sucesso.`;
+    await carregarProfessores();
+  } catch (erro) {
+    mensagemEstadoProfessor.textContent = ["42501", "22023"].includes(erro.code)
+      ? erro.message : "Não foi possível confirmar a alteração. Atualize a lista antes de tentar novamente.";
+  } finally {
+    alterandoEstadoProfessor = false;
+    filtroProfessores.disabled = false;
+    controle.disabled = false;
+  }
+}
+
+filtroProfessores.addEventListener("change", () => {
+  mensagemEstadoProfessor.textContent = "";
+  carregarProfessores();
+});
 carregarProfessores();
 
 const campoMateria = document.querySelector("#materia-professor");

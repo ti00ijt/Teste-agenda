@@ -176,11 +176,13 @@
           <span class="cadprof-contador" id="contador-professores" aria-live="polite">—</span>
         </div>
 
-        <p class="cadprof-orientacao">
-          Professores ativos cadastrados no sistema.
-        </p>
-
-        <ul id="lista-professores" class="cadprof-lista">
+        <label for="filtro-professores">Exibir professores</label>
+        <select id="filtro-professores">
+          <option value="ativos">Ativos</option>
+          <option value="arquivados">Arquivados</option>
+        </select>
+        <p class="cadprof-orientacao">Arquivar preserva as mensagens e os vínculos do professor.</p>
+        <p id="mensagem-estado-professor" role="status" aria-live="polite"></p>
 
           <p
             id="mensagem-lista-professores"
@@ -189,6 +191,7 @@
           >
             Carregando professores...
           </p>
+        <ul id="lista-professores" class="cadprof-lista"></ul>
         
       </aside>
       <dialog
