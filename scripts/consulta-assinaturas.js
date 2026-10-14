@@ -12,7 +12,7 @@ function criarElemento(tag, classe, texto) {
 export function criarConsultaAssinaturas(mensagemId, rpc = "consultar_assinaturas_coordenacao") {
   const painel = criarElemento("details", "histgeral-assinaturas");
   painel.append(criarElemento("summary", "", "Consultar assinaturas"));
-  const resultado = criarElemento("p", "", "Abra para consultar os destinatários deste bilhete.");
+  const resultado = criarElemento("p", "", "Abra para consultar os destinatários desta mensagem.");
   resultado.setAttribute("role", "status");
   resultado.setAttribute("aria-live", "polite");
   const atualizar = criarElemento("button", "histgeral-atualizar", "Atualizar assinaturas");
@@ -39,7 +39,7 @@ export function criarConsultaAssinaturas(mensagemId, rpc = "consultar_assinatura
       const assinados = data.filter((aluno) => aluno.assinado_em).length;
       resultado.textContent = data.length
         ? `${data.length} destinatário(s): ${assinados} assinado(s) e ${data.length - assinados} pendente(s).`
-        : "Nenhum destinatário registrado para este bilhete.";
+        : "Nenhum destinatário registrado para esta mensagem.";
       if (data.length) {
         const tabela = document.createElement("table");
         const legenda = criarElemento("caption", "", "Assinaturas por aluno destinatário");
@@ -69,7 +69,7 @@ export function criarConsultaAssinaturas(mensagemId, rpc = "consultar_assinatura
     } catch (erro) {
       carregado = false;
       resultado.textContent = erro.code === "42501"
-        ? "Acesso não autorizado. Confira seu perfil de coordenação."
+        ? "Acesso não autorizado para consultar esta mensagem."
         : "Não foi possível consultar as assinaturas. Clique em Atualizar assinaturas para tentar novamente.";
     } finally {
       carregando = false;

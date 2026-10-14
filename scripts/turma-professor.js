@@ -289,7 +289,7 @@ async function carregarHistoricoTurma(vinculoId, autorId) {
           : conteudo;
 
       celulaMensagem.append(titulo, resumo);
-      if (mensagem.tipo === "bilhete" && mensagem.status === "aprovado") {
+      if (["bilhete", "tarefa"].includes(mensagem.tipo) && mensagem.status === "aprovado") {
         celulaMensagem.append(criarConsultaAssinaturas(mensagem.id, "consultar_assinaturas_professor"));
       }
 

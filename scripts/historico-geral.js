@@ -202,7 +202,7 @@ function criarMensagem(registro) {
     linhaStatus
   );
 
-  if (registro.tipo === "bilhete" && registro.status === "aprovado") {
+  if (["bilhete", "tarefa"].includes(registro.tipo) && registro.status === "aprovado") {
     artigo.append(criarConsultaAssinaturas(registro.id));
   }
 
