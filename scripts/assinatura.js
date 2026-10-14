@@ -7,6 +7,12 @@ const senha = document.querySelector("#senha-responsavel");
 const botao = document.querySelector("#confirmar-assinatura");
 const resultado = document.querySelector("#resultado-assinatura");
 const mensagemId = new URLSearchParams(location.search).get("mensagem");
+const origem = new URLSearchParams(location.search).get("origem");
+if (origem === "tarefa") {
+  for (const link of document.querySelectorAll(".assinatura-voltar, .assinatura-cancelar")) {
+    link.href = "tarefa.html";
+  }
+}
 let enviando = false;
 let disponivel = false;
 
@@ -14,7 +20,7 @@ async function carregar() {
   campos.disabled = true;
   disponivel = false;
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(mensagemId ?? "")) {
-    resultado.textContent = "Volte aos bilhetes e selecione uma mensagem para assinar.";
+    resultado.textContent = "Volte à lista e selecione uma mensagem para assinar.";
     return;
   }
   const { data, error } = await supabase.rpc("consultar_mensagem_assinatura", { p_mensagem_id: mensagemId });

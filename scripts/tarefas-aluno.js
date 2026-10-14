@@ -17,7 +17,7 @@ function criarElemento(tag, classe, texto) {
   return elemento;
 }
 
-function criarTarefa(tarefa) {
+function criarTarefa(tarefa, assinatura, assinaturasDisponiveis) {
   const item = criarElemento("div", "bl-item");
 
   // Data em que a mensagem foi enviada.
@@ -45,6 +45,9 @@ function criarTarefa(tarefa) {
   );
 
   const titulo = criarElemento("h2", "", tarefa.titulo);
+  const estado = !assinaturasDisponiveis ? "indisponivel" : assinatura ? "assinado" : "pendente";
+  topo.append(criarElemento("span", `bl-status bl-status-${estado}`,
+    !assinaturasDisponiveis ? "Assinatura não consultada" : assinatura ? "Assinado" : "Pendente"));
   titulo.id = tituloId;
 
   // O prazo é uma data sem horário.
@@ -83,7 +86,18 @@ function criarTarefa(tarefa) {
     ].filter(Boolean).join(" • ")
   );
 
-  cartao.append(topo, titulo, prazo, blocoTexto, rodape);
+  if (assinatura) {
+    const confirmacao = criarElemento("p", "bl-confirmacao");
+    const quando = new Intl.DateTimeFormat("pt-BR", {
+      dateStyle: "short", timeStyle: "short", timeZone: "America/Sao_Paulo",
+    }).format(new Date(assinatura.assinado_em));
+    confirmacao.textContent = `Assinado por ${assinatura.nome_responsavel} em ${quando}.`;
+    rodape.append(confirmacao);
+  }
+  const assinar = criarElemento("a", "bl-acao-assinatura",
+    !assinaturasDisponiveis ? "Consultar assinatura" : assinatura ? "Ver assinatura" : "Assinar");
+  assinar.href = `assinatura.html?mensagem=${encodeURIComponent(tarefa.id)}&origem=tarefa`;
+  cartao.append(topo, titulo, prazo, blocoTexto, rodape, assinar);
   item.append(blocoData, cartao);
 
   return item;
@@ -113,10 +127,17 @@ async function carregarTarefas() {
       return;
     }
 
+    const { data: assinaturas, error: erroAssinaturas } = await supabase.rpc(
+      "listar_assinaturas_aluno", { p_mensagem_ids: tarefas.map((tarefa) => tarefa.id) }
+    );
+    const assinaturasDisponiveis = !erroAssinaturas && Array.isArray(assinaturas);
+    const porMensagem = new Map(
+      assinaturasDisponiveis ? assinaturas.map((assinatura) => [assinatura.mensagem_id, assinatura]) : []
+    );
     const fragmento = document.createDocumentFragment();
 
     for (const tarefa of tarefas) {
-      fragmento.append(criarTarefa(tarefa));
+      fragmento.append(criarTarefa(tarefa, porMensagem.get(tarefa.id), assinaturasDisponiveis));
     }
 
     lista.append(fragmento);
@@ -124,6 +145,7 @@ async function carregarTarefas() {
     mensagemLista.textContent =
       `${tarefas.length} tarefa(s) exibida(s), da mais recente para a mais antiga. ` +
       "São exibidas até 50 tarefas.";
+    if (!assinaturasDisponiveis) mensagemLista.textContent += " Não foi possível consultar as assinaturas. Atualize a página para tentar novamente.";
 
   } catch (erro) {
     console.error("Erro ao carregar tarefas:", erro);
@@ -136,3 +158,6 @@ async function carregarTarefas() {
 }
 
 carregarTarefas();
+window.addEventListener("pageshow", (evento) => {
+  if (evento.persisted) carregarTarefas();
+});

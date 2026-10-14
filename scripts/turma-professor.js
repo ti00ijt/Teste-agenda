@@ -1,4 +1,5 @@
 import { supabase } from "./supabase.js";
+import { criarConsultaAssinaturas } from "./consulta-assinaturas.js";
 
 const tituloTurma = document.querySelector("#titulo-turma");
 const identificacao = document.querySelector("#identificacao-professor-turma");
@@ -288,6 +289,9 @@ async function carregarHistoricoTurma(vinculoId, autorId) {
           : conteudo;
 
       celulaMensagem.append(titulo, resumo);
+      if (mensagem.tipo === "bilhete" && mensagem.status === "aprovado") {
+        celulaMensagem.append(criarConsultaAssinaturas(mensagem.id, "consultar_assinaturas_professor"));
+      }
 
       // Status.
       const celulaStatus = document.createElement("td");

@@ -2452,3 +2452,22 @@ body.tela-envio {
   color: #005477;
   font-size: 14px;
 }
+
+/* Assinaturas das tarefas */
+.pagina-tarefas .bl-status { padding:6px 10px; border-radius:16px; font-size:12px; font-weight:700; flex-shrink:0; }
+.pagina-tarefas .bl-status-assinado { background:#e7f5eb; color:#21633a; }
+.pagina-tarefas .bl-status-pendente { background:#fff3d6; color:#795600; }
+.pagina-tarefas .bl-status-indisponivel { background:#eeeeee; color:#555555; }
+.pagina-tarefas .bl-confirmacao { margin:12px 0 0; overflow-wrap:anywhere; }
+.pagina-tarefas .bl-acao-assinatura { display:inline-block; margin-top:16px; padding:10px 18px; border-radius:8px; background:#165b3a; color:#ffffff; font-weight:700; text-decoration:none; }
+.pagina-tarefas .bl-acao-assinatura:hover { background:#10472d; }
+.pagina-tarefas .bl-acao-assinatura:focus-visible { outline:3px solid #795600; outline-offset:3px; }
+@media (max-width:480px) { .pagina-tarefas .bl-cartao-topo { flex-wrap:wrap; } }
+/* Consulta de assinaturas no histórico do professor */
+.tela-turma .histgeral-assinaturas { margin-top:16px; }
+.tela-turma .histgeral-assinaturas summary { cursor:pointer; font-weight:700; }
+.tela-turma .histgeral-atualizar { padding:8px 12px; margin-bottom:12px; cursor:pointer; }
+.tela-turma .histgeral-assinaturas-rolagem { max-width:100%; overflow-x:auto; }
+.tela-turma .histgeral-assinaturas table { width:100%; border-collapse:collapse; font-size:14px; }
+.tela-turma .histgeral-assinaturas caption { text-align:left; margin-bottom:8px; }
+.tela-turma .histgeral-assinaturas th, .tela-turma .histgeral-assinaturas td { padding:10px; border-bottom:1px solid #ddd; text-align:left; }
