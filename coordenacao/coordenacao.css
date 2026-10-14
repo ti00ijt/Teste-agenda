@@ -1,3 +1,5 @@
+@import url("../estilos/navegacao.css");
+
 /* Estilos exclusivos da coordenação */
 body.tela-coordenacao {
   margin: 0;
@@ -358,31 +360,6 @@ body.tela-coordenacao {
   }
 }
 /* Estilos exclusivos desta página */
-/* Estilos exclusivos desta página */
-/* Estilos exclusivos desta página */
-/* Estilos exclusivos desta página */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 body.tela-cadastro-professor {
@@ -766,29 +743,6 @@ body.tela-cadastro-professor {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Estilos exclusivos do cadastro de turmas */
 body.tela-cadastro-turma {
   margin: 0;
@@ -1102,12 +1056,6 @@ body.tela-cadastro-turma {
 }
 
 
-
-
-
-
-
-
 /* TELA DE CADASTRO DO ALUNO */
 
 .tela-cadastro-aluno,
@@ -1403,28 +1351,6 @@ body.tela-cadastro-turma {
     width: 100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* HISTÓRICO GERAL */

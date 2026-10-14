@@ -1,13 +1,7 @@
-/* Configuração geral */
-* {
-  box-sizing: border-box;
-}
+@import url("navegacao.css");
 
-:root {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #17284f;
-  background: #f3f8ff;
-}
+/* Configuração geral */
+
 
 body {
   margin: 0;
@@ -16,22 +10,6 @@ body {
     #f8fbff;
 }
 
-button,
-input {
-  font: inherit;
-}
-
-/* Centralização da tela */
-.pagina {
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  padding: 40px 20px;
-}
 
 /* Cartão de login */
 .cartao{
@@ -44,94 +22,9 @@ input {
   box-shadow: 0 12px 40px rgb(35 88 145 / 8%);
 }
 
-.logo {
-  display: block;
-  width: 100%;
-  max-width: 310px;
-  height: auto;
-  margin: 0 auto 32px;
-}
-
-.cabecalho {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.cabecalho h1 {
-  margin: 0 0 10px;
-  font-size: 34px;
-  line-height: 1.2;
-  letter-spacing: -1px;
-}
-
-.cabecalho p {
-  margin: 0;
-  color: #52617c;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-/* Campos */
-.campo {
-  margin-bottom: 20px;
-}
-
-.campo label {
-  display: block;
-  margin-bottom: 9px;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.entrada {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 54px;
-  padding: 0 15px;
-  border: 1px solid #bcc9dc;
-  border-radius: 10px;
-  background: #ffffff;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.entrada:focus-within {
-  border-color: #1769e0;
-  box-shadow: 0 0 0 3px rgb(23 105 224 / 14%);
-}
-
-.entrada svg {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  fill: none;
-  stroke: #65728a;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.entrada input {
-  width: 100%;
-  min-width: 0;
-  padding: 16px 0;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #17284f;
-  font-size: 16px;
-}
-
-.entrada input::placeholder {
-  color: #697890;
-}
 
 /* Botões */
-.recuperacao {
-  margin-top: -6px;
-  margin-bottom: 24px;
-  text-align: right;
-}
+
 
 .botao-texto {
   padding: 3px 0;
@@ -145,69 +38,12 @@ input {
   cursor: pointer;
 }
 
-.botao-texto:hover {
-  color: #093a85;
-}
-
-.botao-entrar {
-  width: 100%;
-  min-height: 54px;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 10px;
-  background: #1769e0;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.botao-entrar:hover {
-  background: #1056bd;
-}
-
-button:focus-visible {
-  outline: 3px solid #17284f;
-  outline-offset: 4px;
-}
-
-/* Ajuda e rodapé */
-.ajuda {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
-  gap: 4px;
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid #e4eaf2;
-  text-align: center;
-  color: #52617c;
-  font-size: 14px;
-}
-
-footer {
-  color: #61728a;
-  text-align: center;
-  font-size: 13px;
-}
 
 /* Ajustes para celular */
 @media (max-width: 480px) {
-  .pagina {
-    padding: 24px 16px;
-  }
 
-  .cartao {
-    padding: 30px 24px;
-  }
 
-  .cabecalho h1 {
-    font-size: 29px;
-  }
 }
-/*--------------------------------------------------------------------------------------------------------------------------------------------. */
 /* ÁREA DO ALUNO — pode ser colado ao final do CSS base.
    Todos os seletores são restritos a body.painel-aluno. */
 body.painel-aluno {
@@ -284,46 +120,47 @@ body.painel-aluno {
 }
 
 
-
-/* BILHETES — cole ao final do CSS base ou mantenha este arquivo separado.
-   Os seletores abaixo afetam somente body.pagina-bilhetes. */
-body.pagina-bilhetes { margin:0; min-height:100vh; min-height:100svh; display:flex; flex-direction:column; background:#f7f7f7; color:#333; font:16px/1.5 Arial,Helvetica,sans-serif; }
-.pagina-bilhetes *, .pagina-bilhetes *::before, .pagina-bilhetes *::after { box-sizing:border-box; }
-.pagina-bilhetes a:focus-visible { outline:3px solid #005477; outline-offset:4px; }
-.pagina-bilhetes svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
-.pagina-bilhetes .bl-largura { width:min(1140px,calc(100% - 48px)); margin:0 auto; }
-.pagina-bilhetes .bl-pular { position:absolute; top:10px; left:10px; z-index:10; padding:12px; background:#fff; color:#333; transform:translateY(-160%); }
-.pagina-bilhetes .bl-pular:focus { transform:none; }
-.pagina-bilhetes .bl-utilitario { background:#005477; color:#fff; font-size:11px; letter-spacing:1px; }
-.pagina-bilhetes .bl-utilitario > div { width:min(1140px,calc(100% - 48px)); margin:auto; display:flex; justify-content:space-between; gap:12px; padding:9px 0; }
-.pagina-bilhetes .bl-utilitario span { letter-spacing:0; }
+/* Estilos compartilhados das listas de bilhetes, avisos e tarefas. */
+body:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) { margin:0; min-height:100vh; min-height:100svh; display:flex; flex-direction:column; background:#f7f7f7; color:#333; font:16px/1.5 Arial,Helvetica,sans-serif; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) *, :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) *::before, :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) *::after { box-sizing:border-box; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) a:focus-visible { outline:3px solid #005477; outline-offset:4px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-largura { width:min(1140px,calc(100% - 48px)); margin:0 auto; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-pular { position:absolute; top:10px; left:10px; z-index:10; padding:12px; background:#fff; color:#333; transform:translateY(-160%); }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-pular:focus { transform:none; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-utilitario { background:#005477; color:#fff; font-size:11px; letter-spacing:1px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-utilitario > div { width:min(1140px,calc(100% - 48px)); margin:auto; display:flex; justify-content:space-between; gap:12px; padding:9px 0; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-utilitario span { letter-spacing:0; }
 .pagina-bilhetes .bl-topo { background:#ffffff; color:#fff; }
-.pagina-bilhetes .bl-topo-interno { min-height:100px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-.pagina-bilhetes .bl-logo { display:block; width:244px; max-width:65%; height:auto; max-height:78px; object-fit:contain; background:#fff; padding:10px; }
+:is(.pagina-avisos, .pagina-tarefas) .bl-topo { background:#fff; color:#fff; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-topo-interno { min-height:100px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-logo { display:block; width:244px; max-width:65%; height:auto; max-height:78px; object-fit:contain; background:#fff; padding:10px; }
 .pagina-bilhetes .bl-sair { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 22px; border:1px solid #fff; color:#cb8f8f; text-decoration:none; font-size:14px; font-weight:700; }
-.pagina-bilhetes .bl-sair:hover { background:#fff; color:#c8102e; }
-.pagina-bilhetes .bl-sair svg { width:20px; height:20px; }
-.pagina-bilhetes .bl-menu { background:#666; border-bottom:3px solid #ddd; }
-.pagina-bilhetes .bl-menu > div { display:flex; }
-.pagina-bilhetes .bl-menu a { display:flex; align-items:center; justify-content:center; min-height:49px; padding:12px 30px; border-left:1px solid #ffffff26; color:#fff; text-decoration:none; font-size:14px; }
-.pagina-bilhetes .bl-menu a:last-child { border-right:1px solid #ffffff26; }
-.pagina-bilhetes .bl-menu a:hover, .pagina-bilhetes .bl-menu a[aria-current] { background:#4b4b4b; box-shadow:inset 0 -3px #c8102e; }
-.pagina-bilhetes .bl-menu a:focus-visible, .pagina-bilhetes .bl-sair:focus-visible { outline-color:#fff; outline-offset:-5px; }
-.pagina-bilhetes .bl-conteudo { flex:1; padding:24px 0 56px; }
-.pagina-bilhetes .bl-caminho { display:flex; align-items:center; gap:12px; margin-bottom:28px; color:#666; font-size:12px; }
-.pagina-bilhetes .bl-caminho a { color:#005477; text-underline-offset:3px; }
-.pagina-bilhetes .bl-abertura { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:32px 38px; border:1px solid #e3e3e3; border-left:6px solid #c8102e; background:#fff; }
-.pagina-bilhetes .bl-sobretitulo { margin:0 0 10px; font-size:11px; font-weight:700; letter-spacing:2px; color:#666; }
-.pagina-bilhetes .bl-abertura h1 { margin:0; font-size:clamp(32px,4vw,48px); line-height:1.1; font-weight:600; letter-spacing:-1.5px; text-transform:uppercase; color:#c8102e; }
-.pagina-bilhetes .bl-introducao { margin:14px 0 0; font-size:15px; color:#666; }
-.pagina-bilhetes .bl-envelope { width:64px; height:64px; flex-shrink:0; stroke-width:1.1; color:#c8102e; }
-.pagina-bilhetes .bl-exemplo { margin:24px 0; color:#666; font-size:12px; }
-.pagina-bilhetes .bl-lista { display:grid; gap:30px; }
-.pagina-bilhetes .bl-data { display:flex; align-items:center; gap:16px; margin-bottom:12px; color:#005477; font-size:13px; font-weight:700; }
-.pagina-bilhetes .bl-data > span { flex:1; height:1px; background:#ddd; }
-.pagina-bilhetes .bl-cartao { padding:28px 34px; border:1px solid #ddd; border-left:4px solid #b7b7b7; background:#fff; }
-.pagina-bilhetes .bl-cartao.bl-novo { border-left-color:#c8102e; }
-.pagina-bilhetes .bl-cartao-topo { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.pagina-avisos .bl-sair { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 22px; border:1px solid #fff; color:#e37777; text-decoration:none; font-size:14px; font-weight:700; }
+.pagina-tarefas .bl-sair { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 22px; border:1px solid #fff; color:#ff7e7e; text-decoration:none; font-size:14px; font-weight:700; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-sair:hover { background:#fff; color:#c8102e; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-sair svg { width:20px; height:20px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-menu { background:#666; border-bottom:3px solid #ddd; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-menu > div { display:flex; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-menu a { display:flex; align-items:center; justify-content:center; min-height:49px; padding:12px 30px; border-left:1px solid #ffffff26; color:#fff; text-decoration:none; font-size:14px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-menu a:last-child { border-right:1px solid #ffffff26; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-menu a:hover, :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-menu a[aria-current] { background:#4b4b4b; box-shadow:inset 0 -3px #c8102e; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-menu a:focus-visible, :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-sair:focus-visible { outline-color:#fff; outline-offset:-5px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-conteudo { flex:1; padding:24px 0 56px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-caminho { display:flex; align-items:center; gap:12px; margin-bottom:28px; color:#666; font-size:12px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-caminho a { color:#005477; text-underline-offset:3px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-abertura { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:32px 38px; border:1px solid #e3e3e3; border-left:6px solid #c8102e; background:#fff; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-sobretitulo { margin:0 0 10px; font-size:11px; font-weight:700; letter-spacing:2px; color:#666; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-abertura h1 { margin:0; font-size:clamp(32px,4vw,48px); line-height:1.1; font-weight:600; letter-spacing:-1.5px; text-transform:uppercase; color:#c8102e; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-introducao { margin:14px 0 0; font-size:15px; color:#666; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-envelope { width:64px; height:64px; flex-shrink:0; stroke-width:1.1; color:#c8102e; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-exemplo { margin:24px 0; color:#666; font-size:12px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-lista { display:grid; gap:30px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-data { display:flex; align-items:center; gap:16px; margin-bottom:12px; color:#005477; font-size:13px; font-weight:700; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-data > span { flex:1; height:1px; background:#ddd; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-cartao { padding:28px 34px; border:1px solid #ddd; border-left:4px solid #b7b7b7; background:#fff; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-cartao.bl-novo { border-left-color:#c8102e; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-cartao-topo { display:flex; justify-content:space-between; align-items:center; gap:16px; }
 .pagina-bilhetes .bl-status { padding:6px 10px; border-radius:16px; font-size:12px; font-weight:700; flex-shrink:0; }
 .pagina-bilhetes .bl-status-assinado { background:#e7f5eb; color:#21633a; }
 .pagina-bilhetes .bl-status-pendente { background:#fff3d6; color:#795600; }
@@ -332,32 +169,53 @@ body.pagina-bilhetes { margin:0; min-height:100vh; min-height:100svh; display:fl
 .pagina-bilhetes .bl-acao-assinatura { display:inline-block; margin-top:16px; padding:10px 18px; border-radius:8px; background:#165b3a; color:#ffffff; font-weight:700; text-decoration:none; }
 .pagina-bilhetes .bl-acao-assinatura:hover { background:#10472d; }
 .pagina-bilhetes .bl-acao-assinatura:focus-visible { outline:3px solid #795600; outline-offset:3px; }
-@media (max-width:480px) { .pagina-bilhetes .bl-cartao-topo { flex-wrap:wrap; } }
-.pagina-bilhetes .bl-remetente { margin:0; color:#666; font-size:11px; font-weight:700; letter-spacing:1.2px; }
-.pagina-bilhetes .bl-selo { display:inline-flex; align-items:center; gap:7px; flex-shrink:0; padding:6px 10px; background:#fff5d6; border:1px solid #ebd69a; color:#735008; font-size:12px; font-weight:700; }
-.pagina-bilhetes .bl-selo svg { width:19px; height:19px; }
-.pagina-bilhetes .bl-cartao h2 { margin:16px 0; font-size:23px; line-height:1.3; overflow-wrap:anywhere; }
-.pagina-bilhetes .bl-texto { max-width:850px; font-size:15px; line-height:1.8; color:#4c4c4c; overflow-wrap:anywhere; }
-.pagina-bilhetes .bl-texto p { margin:0 0 12px; }
-.pagina-bilhetes .bl-texto p:last-child { margin-bottom:0; }
-.pagina-bilhetes .bl-assinatura { margin-top:24px; padding:16px 0 0; border-top:1px solid #e5e5e5; background:transparent; color:#666; font-size:12px; text-align:left; }
-.pagina-bilhetes .bl-assinatura span { padding:0 7px; }
-.pagina-bilhetes .bl-voltar { display:inline-flex; align-items:center; gap:10px; min-height:44px; margin-top:28px; color:#005477; font-size:14px; font-weight:700; text-underline-offset:4px; }
-.pagina-bilhetes .bl-rodape { padding:25px 24px; border-top:4px solid #c8102e; background:#333; color:#eee; text-align:center; font-size:12px; letter-spacing:.3px; }
-.pagina-bilhetes .bl-rodape span { margin:0 10px; }
+@media (max-width:480px) {
+  .pagina-bilhetes .bl-cartao-topo { flex-wrap:wrap; }
+}
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-remetente { margin:0; color:#666; font-size:11px; font-weight:700; letter-spacing:1.2px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-selo { display:inline-flex; align-items:center; gap:7px; flex-shrink:0; padding:6px 10px; background:#fff5d6; border:1px solid #ebd69a; color:#735008; font-size:12px; font-weight:700; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-selo svg { width:19px; height:19px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-cartao h2 { margin:16px 0; font-size:23px; line-height:1.3; overflow-wrap:anywhere; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-texto { max-width:850px; font-size:15px; line-height:1.8; color:#4c4c4c; overflow-wrap:anywhere; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-texto p { margin:0 0 12px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-texto p:last-child { margin-bottom:0; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-assinatura { margin-top:24px; padding:16px 0 0; border-top:1px solid #e5e5e5; background:transparent; color:#666; font-size:12px; text-align:left; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-assinatura span { padding:0 7px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-voltar { display:inline-flex; align-items:center; gap:10px; min-height:44px; margin-top:28px; color:#005477; font-size:14px; font-weight:700; text-underline-offset:4px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-rodape { padding:25px 24px; border-top:4px solid #c8102e; background:#333; color:#eee; text-align:center; font-size:12px; letter-spacing:.3px; }
+:is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-rodape span { margin:0 10px; }
 @media(max-width:680px) {
-  .pagina-bilhetes .bl-largura, .pagina-bilhetes .bl-utilitario > div { width:calc(100% - 32px); }
-  .pagina-bilhetes .bl-topo-interno { min-height:90px; gap:16px; }
-  .pagina-bilhetes .bl-logo { width:205px; }
-  .pagina-bilhetes .bl-sair { padding:10px 14px; }
-  .pagina-bilhetes .bl-menu a { flex:1; padding:12px 8px; font-size:12px; text-align:center; }
-  .pagina-bilhetes .bl-abertura { padding:26px 22px; }
-  .pagina-bilhetes .bl-envelope { display:none; }
-  .pagina-bilhetes .bl-cartao { padding:22px 20px; }
-  .pagina-bilhetes .bl-cartao-topo { align-items:flex-start; }
-  .pagina-bilhetes .bl-remetente { font-size:10px; }
-  .pagina-bilhetes .bl-cartao h2 { font-size:21px; }
-  .pagina-bilhetes .bl-conteudo { padding-bottom:36px; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-largura, :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-utilitario > div { width:calc(100% - 32px); }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-topo-interno { min-height:90px; gap:16px; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-logo { width:205px; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-sair { padding:10px 14px; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-menu a { flex:1; padding:12px 8px; font-size:12px; text-align:center; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-abertura { padding:26px 22px; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-envelope { display:none; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-cartao { padding:22px 20px; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-cartao-topo { align-items:flex-start; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-remetente { font-size:10px; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-cartao h2 { font-size:21px; }
+  :is(.pagina-bilhetes, .pagina-avisos, .pagina-tarefas) .bl-conteudo { padding-bottom:36px; }
+}
+.pagina-tarefas .bl-detalhes { display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:20px; padding:18px 20px; margin:20px 0; background:#f7f7f7; border-left:3px solid #005477; }
+.pagina-tarefas .bl-detalhes div { min-width:0; }
+.pagina-tarefas .bl-detalhes dt { color:#666; text-transform:uppercase; font-size:10px; font-weight:700; letter-spacing:1px; margin-bottom:5px; }
+.pagina-tarefas .bl-detalhes dd { margin:0; color:#333; font-size:14px; font-weight:700; overflow-wrap:anywhere; }
+.pagina-tarefas .bl-detalhes time { color:#005477; }
+@media(max-width:680px) {
+  .pagina-tarefas .bl-detalhes { grid-template-columns:1fr; gap:14px; padding:16px; }
+}
+.pagina-tarefas .bl-status { padding:6px 10px; border-radius:16px; font-size:12px; font-weight:700; flex-shrink:0; }
+.pagina-tarefas .bl-status-assinado { background:#e7f5eb; color:#21633a; }
+.pagina-tarefas .bl-status-pendente { background:#fff3d6; color:#795600; }
+.pagina-tarefas .bl-status-indisponivel { background:#eeeeee; color:#555555; }
+.pagina-tarefas .bl-confirmacao { margin:12px 0 0; overflow-wrap:anywhere; }
+.pagina-tarefas .bl-acao-assinatura { display:inline-block; margin-top:16px; padding:10px 18px; border-radius:8px; background:#165b3a; color:#ffffff; font-weight:700; text-decoration:none; }
+.pagina-tarefas .bl-acao-assinatura:hover { background:#10472d; }
+.pagina-tarefas .bl-acao-assinatura:focus-visible { outline:3px solid #795600; outline-offset:3px; }
+@media (max-width:480px) {
+  .pagina-tarefas .bl-cartao-topo { flex-wrap:wrap; }
 }
 
 
@@ -580,149 +438,6 @@ footer {
     font-size: 29px;
   }
 }
-
-
-
-/* AVISOS — cole ao final do CSS base ou mantenha este arquivo separado.
-   Os seletores abaixo afetam somente body.pagina-avisos. */
-body.pagina-avisos { margin:0; min-height:100vh; min-height:100svh; display:flex; flex-direction:column; background:#f7f7f7; color:#333; font:16px/1.5 Arial,Helvetica,sans-serif; }
-.pagina-avisos *, .pagina-avisos *::before, .pagina-avisos *::after { box-sizing:border-box; }
-.pagina-avisos a:focus-visible { outline:3px solid #005477; outline-offset:4px; }
-.pagina-avisos svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
-.pagina-avisos .bl-largura { width:min(1140px,calc(100% - 48px)); margin:0 auto; }
-.pagina-avisos .bl-pular { position:absolute; top:10px; left:10px; z-index:10; padding:12px; background:#fff; color:#333; transform:translateY(-160%); }
-.pagina-avisos .bl-pular:focus { transform:none; }
-.pagina-avisos .bl-utilitario { background:#005477; color:#fff; font-size:11px; letter-spacing:1px; }
-.pagina-avisos .bl-utilitario > div { width:min(1140px,calc(100% - 48px)); margin:auto; display:flex; justify-content:space-between; gap:12px; padding:9px 0; }
-.pagina-avisos .bl-utilitario span { letter-spacing:0; }
-.pagina-avisos .bl-topo { background:#fff; color:#fff; }
-.pagina-avisos .bl-topo-interno { min-height:100px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-.pagina-avisos .bl-logo { display:block; width:244px; max-width:65%; height:auto; max-height:78px; object-fit:contain; background:#fff; padding:10px; }
-.pagina-avisos .bl-sair { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 22px; border:1px solid #fff; color:#e37777; text-decoration:none; font-size:14px; font-weight:700; }
-.pagina-avisos .bl-sair:hover { background:#fff; color:#c8102e; }
-.pagina-avisos .bl-sair svg { width:20px; height:20px; }
-.pagina-avisos .bl-menu { background:#666; border-bottom:3px solid #ddd; }
-.pagina-avisos .bl-menu > div { display:flex; }
-.pagina-avisos .bl-menu a { display:flex; align-items:center; justify-content:center; min-height:49px; padding:12px 30px; border-left:1px solid #ffffff26; color:#fff; text-decoration:none; font-size:14px; }
-.pagina-avisos .bl-menu a:last-child { border-right:1px solid #ffffff26; }
-.pagina-avisos .bl-menu a:hover, .pagina-avisos .bl-menu a[aria-current] { background:#4b4b4b; box-shadow:inset 0 -3px #c8102e; }
-.pagina-avisos .bl-menu a:focus-visible, .pagina-avisos .bl-sair:focus-visible { outline-color:#fff; outline-offset:-5px; }
-.pagina-avisos .bl-conteudo { flex:1; padding:24px 0 56px; }
-.pagina-avisos .bl-caminho { display:flex; align-items:center; gap:12px; margin-bottom:28px; color:#666; font-size:12px; }
-.pagina-avisos .bl-caminho a { color:#005477; text-underline-offset:3px; }
-.pagina-avisos .bl-abertura { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:32px 38px; border:1px solid #e3e3e3; border-left:6px solid #c8102e; background:#fff; }
-.pagina-avisos .bl-sobretitulo { margin:0 0 10px; font-size:11px; font-weight:700; letter-spacing:2px; color:#666; }
-.pagina-avisos .bl-abertura h1 { margin:0; font-size:clamp(32px,4vw,48px); line-height:1.1; font-weight:600; letter-spacing:-1.5px; text-transform:uppercase; color:#c8102e; }
-.pagina-avisos .bl-introducao { margin:14px 0 0; font-size:15px; color:#666; }
-.pagina-avisos .bl-envelope { width:64px; height:64px; flex-shrink:0; stroke-width:1.1; color:#c8102e; }
-.pagina-avisos .bl-exemplo { margin:24px 0; color:#666; font-size:12px; }
-.pagina-avisos .bl-lista { display:grid; gap:30px; }
-.pagina-avisos .bl-data { display:flex; align-items:center; gap:16px; margin-bottom:12px; color:#005477; font-size:13px; font-weight:700; }
-.pagina-avisos .bl-data > span { flex:1; height:1px; background:#ddd; }
-.pagina-avisos .bl-cartao { padding:28px 34px; border:1px solid #ddd; border-left:4px solid #b7b7b7; background:#fff; }
-.pagina-avisos .bl-cartao.bl-novo { border-left-color:#c8102e; }
-.pagina-avisos .bl-cartao-topo { display:flex; justify-content:space-between; align-items:center; gap:16px; }
-.pagina-avisos .bl-remetente { margin:0; color:#666; font-size:11px; font-weight:700; letter-spacing:1.2px; }
-.pagina-avisos .bl-selo { display:inline-flex; align-items:center; gap:7px; flex-shrink:0; padding:6px 10px; background:#fff5d6; border:1px solid #ebd69a; color:#735008; font-size:12px; font-weight:700; }
-.pagina-avisos .bl-selo svg { width:19px; height:19px; }
-.pagina-avisos .bl-cartao h2 { margin:16px 0; font-size:23px; line-height:1.3; overflow-wrap:anywhere; }
-.pagina-avisos .bl-texto { max-width:850px; font-size:15px; line-height:1.8; color:#4c4c4c; overflow-wrap:anywhere; }
-.pagina-avisos .bl-texto p { margin:0 0 12px; }
-.pagina-avisos .bl-texto p:last-child { margin-bottom:0; }
-.pagina-avisos .bl-assinatura { margin-top:24px; padding:16px 0 0; border-top:1px solid #e5e5e5; background:transparent; color:#666; font-size:12px; text-align:left; }
-.pagina-avisos .bl-assinatura span { padding:0 7px; }
-.pagina-avisos .bl-voltar { display:inline-flex; align-items:center; gap:10px; min-height:44px; margin-top:28px; color:#005477; font-size:14px; font-weight:700; text-underline-offset:4px; }
-.pagina-avisos .bl-rodape { padding:25px 24px; border-top:4px solid #c8102e; background:#333; color:#eee; text-align:center; font-size:12px; letter-spacing:.3px; }
-.pagina-avisos .bl-rodape span { margin:0 10px; }
-@media(max-width:680px) {
-  .pagina-avisos .bl-largura, .pagina-avisos .bl-utilitario > div { width:calc(100% - 32px); }
-  .pagina-avisos .bl-topo-interno { min-height:90px; gap:16px; }
-  .pagina-avisos .bl-logo { width:205px; }
-  .pagina-avisos .bl-sair { padding:10px 14px; }
-  .pagina-avisos .bl-menu a { flex:1; padding:12px 8px; font-size:12px; text-align:center; }
-  .pagina-avisos .bl-abertura { padding:26px 22px; }
-  .pagina-avisos .bl-envelope { display:none; }
-  .pagina-avisos .bl-cartao { padding:22px 20px; }
-  .pagina-avisos .bl-cartao-topo { align-items:flex-start; }
-  .pagina-avisos .bl-remetente { font-size:10px; }
-  .pagina-avisos .bl-cartao h2 { font-size:21px; }
-  .pagina-avisos .bl-conteudo { padding-bottom:36px; }
-}
-
-/* TAREFAS — cole ao final do CSS base ou mantenha este arquivo separado.
-   Os seletores abaixo afetam somente body.pagina-tarefas. */
-body.pagina-tarefas { margin:0; min-height:100vh; min-height:100svh; display:flex; flex-direction:column; background:#f7f7f7; color:#333; font:16px/1.5 Arial,Helvetica,sans-serif; }
-.pagina-tarefas *, .pagina-tarefas *::before, .pagina-tarefas *::after { box-sizing:border-box; }
-.pagina-tarefas a:focus-visible { outline:3px solid #005477; outline-offset:4px; }
-.pagina-tarefas svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
-.pagina-tarefas .bl-largura { width:min(1140px,calc(100% - 48px)); margin:0 auto; }
-.pagina-tarefas .bl-pular { position:absolute; top:10px; left:10px; z-index:10; padding:12px; background:#fff; color:#333; transform:translateY(-160%); }
-.pagina-tarefas .bl-pular:focus { transform:none; }
-.pagina-tarefas .bl-utilitario { background:#005477; color:#fff; font-size:11px; letter-spacing:1px; }
-.pagina-tarefas .bl-utilitario > div { width:min(1140px,calc(100% - 48px)); margin:auto; display:flex; justify-content:space-between; gap:12px; padding:9px 0; }
-.pagina-tarefas .bl-utilitario span { letter-spacing:0; }
-.pagina-tarefas .bl-topo { background:#fff; color:#fff; }
-.pagina-tarefas .bl-topo-interno { min-height:100px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-.pagina-tarefas .bl-logo { display:block; width:244px; max-width:65%; height:auto; max-height:78px; object-fit:contain; background:#fff; padding:10px; }
-.pagina-tarefas .bl-sair { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 22px; border:1px solid #fff; color:#ff7e7e; text-decoration:none; font-size:14px; font-weight:700; }
-.pagina-tarefas .bl-sair:hover { background:#fff; color:#c8102e; }
-.pagina-tarefas .bl-sair svg { width:20px; height:20px; }
-.pagina-tarefas .bl-menu { background:#666; border-bottom:3px solid #ddd; }
-.pagina-tarefas .bl-menu > div { display:flex; }
-.pagina-tarefas .bl-menu a { display:flex; align-items:center; justify-content:center; min-height:49px; padding:12px 30px; border-left:1px solid #ffffff26; color:#fff; text-decoration:none; font-size:14px; }
-.pagina-tarefas .bl-menu a:last-child { border-right:1px solid #ffffff26; }
-.pagina-tarefas .bl-menu a:hover, .pagina-tarefas .bl-menu a[aria-current] { background:#4b4b4b; box-shadow:inset 0 -3px #c8102e; }
-.pagina-tarefas .bl-menu a:focus-visible, .pagina-tarefas .bl-sair:focus-visible { outline-color:#fff; outline-offset:-5px; }
-.pagina-tarefas .bl-conteudo { flex:1; padding:24px 0 56px; }
-.pagina-tarefas .bl-caminho { display:flex; align-items:center; gap:12px; margin-bottom:28px; color:#666; font-size:12px; }
-.pagina-tarefas .bl-caminho a { color:#005477; text-underline-offset:3px; }
-.pagina-tarefas .bl-abertura { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:32px 38px; border:1px solid #e3e3e3; border-left:6px solid #c8102e; background:#fff; }
-.pagina-tarefas .bl-sobretitulo { margin:0 0 10px; font-size:11px; font-weight:700; letter-spacing:2px; color:#666; }
-.pagina-tarefas .bl-abertura h1 { margin:0; font-size:clamp(32px,4vw,48px); line-height:1.1; font-weight:600; letter-spacing:-1.5px; text-transform:uppercase; color:#c8102e; }
-.pagina-tarefas .bl-introducao { margin:14px 0 0; font-size:15px; color:#666; }
-.pagina-tarefas .bl-envelope { width:64px; height:64px; flex-shrink:0; stroke-width:1.1; color:#c8102e; }
-.pagina-tarefas .bl-exemplo { margin:24px 0; color:#666; font-size:12px; }
-.pagina-tarefas .bl-lista { display:grid; gap:30px; }
-.pagina-tarefas .bl-data { display:flex; align-items:center; gap:16px; margin-bottom:12px; color:#005477; font-size:13px; font-weight:700; }
-.pagina-tarefas .bl-data > span { flex:1; height:1px; background:#ddd; }
-.pagina-tarefas .bl-cartao { padding:28px 34px; border:1px solid #ddd; border-left:4px solid #b7b7b7; background:#fff; }
-.pagina-tarefas .bl-cartao.bl-novo { border-left-color:#c8102e; }
-.pagina-tarefas .bl-cartao-topo { display:flex; justify-content:space-between; align-items:center; gap:16px; }
-.pagina-tarefas .bl-remetente { margin:0; color:#666; font-size:11px; font-weight:700; letter-spacing:1.2px; }
-.pagina-tarefas .bl-selo { display:inline-flex; align-items:center; gap:7px; flex-shrink:0; padding:6px 10px; background:#fff5d6; border:1px solid #ebd69a; color:#735008; font-size:12px; font-weight:700; }
-.pagina-tarefas .bl-selo svg { width:19px; height:19px; }
-.pagina-tarefas .bl-cartao h2 { margin:16px 0; font-size:23px; line-height:1.3; overflow-wrap:anywhere; }
-.pagina-tarefas .bl-texto { max-width:850px; font-size:15px; line-height:1.8; color:#4c4c4c; overflow-wrap:anywhere; }
-.pagina-tarefas .bl-texto p { margin:0 0 12px; }
-.pagina-tarefas .bl-texto p:last-child { margin-bottom:0; }
-.pagina-tarefas .bl-assinatura { margin-top:24px; padding:16px 0 0; border-top:1px solid #e5e5e5; background:transparent; color:#666; font-size:12px; text-align:left; }
-.pagina-tarefas .bl-assinatura span { padding:0 7px; }
-.pagina-tarefas .bl-voltar { display:inline-flex; align-items:center; gap:10px; min-height:44px; margin-top:28px; color:#005477; font-size:14px; font-weight:700; text-underline-offset:4px; }
-.pagina-tarefas .bl-rodape { padding:25px 24px; border-top:4px solid #c8102e; background:#333; color:#eee; text-align:center; font-size:12px; letter-spacing:.3px; }
-.pagina-tarefas .bl-rodape span { margin:0 10px; }
-@media(max-width:680px) {
-  .pagina-tarefas .bl-largura, .pagina-tarefas .bl-utilitario > div { width:calc(100% - 32px); }
-  .pagina-tarefas .bl-topo-interno { min-height:90px; gap:16px; }
-  .pagina-tarefas .bl-logo { width:205px; }
-  .pagina-tarefas .bl-sair { padding:10px 14px; }
-  .pagina-tarefas .bl-menu a { flex:1; padding:12px 8px; font-size:12px; text-align:center; }
-  .pagina-tarefas .bl-abertura { padding:26px 22px; }
-  .pagina-tarefas .bl-envelope { display:none; }
-  .pagina-tarefas .bl-cartao { padding:22px 20px; }
-  .pagina-tarefas .bl-cartao-topo { align-items:flex-start; }
-  .pagina-tarefas .bl-remetente { font-size:10px; }
-  .pagina-tarefas .bl-cartao h2 { font-size:21px; }
-  .pagina-tarefas .bl-conteudo { padding-bottom:36px; }
-}
-
-/* Informações de entrega das tarefas. */
-.pagina-tarefas .bl-detalhes { display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:20px; padding:18px 20px; margin:20px 0; background:#f7f7f7; border-left:3px solid #005477; }
-.pagina-tarefas .bl-detalhes div { min-width:0; }
-.pagina-tarefas .bl-detalhes dt { color:#666; text-transform:uppercase; font-size:10px; font-weight:700; letter-spacing:1px; margin-bottom:5px; }
-.pagina-tarefas .bl-detalhes dd { margin:0; color:#333; font-size:14px; font-weight:700; overflow-wrap:anywhere; }
-.pagina-tarefas .bl-detalhes time { color:#005477; }
-@media(max-width:680px) { .pagina-tarefas .bl-detalhes { grid-template-columns:1fr; gap:14px; padding:16px; } }
-
 
 
 /* Configuração desta página */
@@ -2431,9 +2146,7 @@ body.tela-envio {
   padding-left: 25%;
 }
 
-#opcoes-turma[hidden] {
-  display: none;
-}
+#opcoes-turma[hidden],
 #grupo-alunos[hidden] {
   display: none;
 }
@@ -2453,16 +2166,7 @@ body.tela-envio {
   font-size: 14px;
 }
 
-/* Assinaturas das tarefas */
-.pagina-tarefas .bl-status { padding:6px 10px; border-radius:16px; font-size:12px; font-weight:700; flex-shrink:0; }
-.pagina-tarefas .bl-status-assinado { background:#e7f5eb; color:#21633a; }
-.pagina-tarefas .bl-status-pendente { background:#fff3d6; color:#795600; }
-.pagina-tarefas .bl-status-indisponivel { background:#eeeeee; color:#555555; }
-.pagina-tarefas .bl-confirmacao { margin:12px 0 0; overflow-wrap:anywhere; }
-.pagina-tarefas .bl-acao-assinatura { display:inline-block; margin-top:16px; padding:10px 18px; border-radius:8px; background:#165b3a; color:#ffffff; font-weight:700; text-decoration:none; }
-.pagina-tarefas .bl-acao-assinatura:hover { background:#10472d; }
-.pagina-tarefas .bl-acao-assinatura:focus-visible { outline:3px solid #795600; outline-offset:3px; }
-@media (max-width:480px) { .pagina-tarefas .bl-cartao-topo { flex-wrap:wrap; } }
+
 /* Consulta de assinaturas no histórico do professor */
 .tela-turma .histgeral-assinaturas { margin-top:16px; }
 .tela-turma .histgeral-assinaturas summary { cursor:pointer; font-weight:700; }

@@ -1,0 +1,30 @@
+/* Cores compartilhadas dos controles de saída e retorno. */
+body[class] :is(a, button).acao-sair {
+  color: #005477;
+  border-color: #005477;
+  background-color: #ffffff;
+}
+
+body[class] :is(a, button).acao-voltar {
+  color: #c8102e;
+  border-color: #c8102e;
+  background-color: #ffffff;
+}
+
+body[class] :is(a, button).acao-sair:hover {
+  color: #003d57;
+  border-color: #003d57;
+  background-color: #e8f4fa;
+}
+
+body[class] :is(a, button).acao-voltar:hover {
+  color: #a50d26;
+  border-color: #a50d26;
+  background-color: #fff0f2;
+}
+
+body[class] :is(a, button).acao-sair:focus-visible,
+body[class] :is(a, button).acao-voltar:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}

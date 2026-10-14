@@ -23,7 +23,12 @@ Deno.serve(async (req) => {
     if (authError || !user) return reply(401, { erro: "Entre novamente na conta." });
     const { data: perfil, error: perfilError } = await admin.from("perfis")
       .select("perfil, ativo").eq("id", user.id).maybeSingle();
-    if (perfilError) return reply(503, { erro: "Não foi possível conferir seu acesso. Tente novamente." });
+    if (perfilError) {
+      // Diagnóstico sem registrar sessão, senha ou dados do cadastro.
+      console.error("Falha ao consultar perfil da coordenação", { codigo: perfilError.code });
+      const codigo = perfilError.code || "sem_codigo";
+      return reply(503, { erro: `Não foi possível conferir seu acesso (código: ${codigo}).` });
+    }
     if (perfil?.perfil !== "coordenacao" || !perfil.ativo) {
       return reply(403, { erro: "Cadastro permitido somente à coordenação ativa." });
     }
