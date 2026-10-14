@@ -574,6 +574,13 @@ body.tela-cadastro-professor {
   background: #edf4f7;
 }
 
+.tela-cadastro-professor #adicionar-materia {
+  min-height: 40px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
 .tela-cadastro-professor .cadprof-vinculadas {
   margin-top: 22px;
   padding: 18px;
@@ -1307,6 +1314,31 @@ body.tela-cadastro-turma {
 
 .tela-cadastro-aluno .cadaluno-excluir:hover {
   background: #fff0f3;
+}
+
+.tela-cadastro-aluno .cadaluno-transferir {
+  border-color: #005477;
+  background: #e8f4fa;
+  color: #005477;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.tela-cadastro-aluno .cadaluno-transferir:hover {
+  background: #d0eaf6;
+}
+
+.tela-cadastro-aluno .cadaluno-encerrar {
+  border-color: #c8102e;
+  background: #c8102e;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.tela-cadastro-aluno .cadaluno-encerrar:hover {
+  border-color: #a50d26;
+  background: #a50d26;
 }
 
 /* Navegação por teclado */
@@ -2118,3 +2150,16 @@ body.tela-cadastro-turma {
 .histgeral-assinaturas table { width:100%; border-collapse:collapse; font-size:14px; }
 .histgeral-assinaturas caption { text-align:left; margin-bottom:8px; }
 .histgeral-assinaturas th, .histgeral-assinaturas td { text-align:left; padding:10px; border-bottom:1px solid #ddd; overflow-wrap:anywhere; }
+/* Redefinição de senha nas listas de alunos e professores. */
+.senha-redefinir { padding:6px 10px; border:1px solid #b88000; border-radius:5px; background:#ffd43b; color:#332600; font:inherit; font-size:12px; font-weight:700; cursor:pointer; }
+.senha-redefinir:hover { background:#ffc107; border-color:#8a6100; }
+.senha-dialogo { width:min(480px, calc(100% - 32px)); max-height:calc(100vh - 32px); overflow-y:auto; border:1px solid #ddd; border-radius:12px; padding:24px; color:#333; font-family:Arial, Helvetica, sans-serif; }
+.senha-dialogo::backdrop { background:rgb(0 0 0 / 45%); }
+.senha-dialogo label { display:block; margin-top:14px; font-weight:700; }
+.senha-dialogo input:not([type="checkbox"]) { box-sizing:border-box; display:block; width:100%; padding:10px; margin-top:6px; border:1px solid #aaa; border-radius:6px; font:inherit; }
+.senha-dialogo .senha-mostrar { display:flex; align-items:center; gap:8px; font-weight:400; }
+.senha-acoes { display:flex; flex-wrap:wrap; gap:12px; justify-content:flex-end; margin-top:20px; }
+.senha-acoes button { padding:10px 16px; border:1px solid #005477; border-radius:6px; background:#fff; color:#005477; font:inherit; cursor:pointer; }
+.senha-acoes button[type="submit"] { background:#005477; color:#fff; }
+.senha-dialogo button:disabled { opacity:.6; cursor:wait; }
+.senha-dialogo :is(input, button):focus-visible, .senha-redefinir:focus-visible { outline:3px solid #005477; outline-offset:3px; }

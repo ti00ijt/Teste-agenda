@@ -1,5 +1,6 @@
 import { supabase } from "./supabase.js";
 import { cadastrarComAcesso } from "./cadastro-com-acesso.js";
+import { criarBotaoRedefinirSenha } from "./redefinir-senha.js";
 
 const formulario = document.querySelector("#form-cadastro-professor");
 const nome = document.querySelector("#nome-professor");
@@ -74,6 +75,7 @@ botao.disabled = false;
 botao.textContent = "Finalizar cadastro";
 
 const listaProfessores = document.querySelector("#lista-professores");
+const contadorProfessores = document.querySelector("#contador-professores");
 const mensagemLista = document.querySelector(
   "#mensagem-lista-professores"
 );
@@ -85,6 +87,7 @@ async function carregarProfessores() {
   const consulta = ++consultaAtual;
 
   listaProfessores.replaceChildren();
+  contadorProfessores.textContent = "—";
   mensagemLista.textContent = "Carregando professores...";
 
   try {
@@ -121,9 +124,12 @@ async function carregarProfessores() {
     if (error) throw error;
 
     if (professores.length === 0) {
+      contadorProfessores.textContent = "0";
       mensagemLista.textContent = "Nenhum professor cadastrado.";
       return;
     }
+
+    contadorProfessores.textContent = String(professores.length);
 
     for (const professor of professores) {
       const item = document.createElement("li");
@@ -236,7 +242,7 @@ item.append(adicionarMateria);
     abrirTurmasProfessor(professor);
   });
 
-item.append(vincularTurma);
+item.append(vincularTurma, criarBotaoRedefinirSenha("professor", professor));
       listaProfessores.append(item);
     }
 
@@ -247,6 +253,7 @@ item.append(vincularTurma);
     if (consulta !== consultaAtual) return;
 
     console.error("Erro ao listar professores:", erro);
+    contadorProfessores.textContent = "—";
 
     mensagemLista.textContent =
       "Não foi possível carregar a lista. Atualize a página.";

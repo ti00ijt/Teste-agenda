@@ -1,5 +1,6 @@
 import { supabase } from "./supabase.js";
 import { cadastrarComAcesso } from "./cadastro-com-acesso.js";
+import { criarBotaoRedefinirSenha } from "./redefinir-senha.js";
 
 const campoTurma = document.querySelector("#turma-aluno");
 const mensagemTurmas = document.querySelector("#mensagem-turmas-aluno");
@@ -258,7 +259,7 @@ async function carregarAlunosDaTurma() {
 
       const botaoEncerrar = document.createElement("button");
         botaoEncerrar.type = "button";
-        botaoEncerrar.className = "cadaluno-excluir";
+        botaoEncerrar.className = "cadaluno-excluir cadaluno-encerrar";
         botaoEncerrar.textContent = "Encerrar matrícula";
 
         botaoEncerrar.setAttribute(
@@ -272,7 +273,7 @@ async function carregarAlunosDaTurma() {
 
        const botaoTransferir = document.createElement("button");
 botaoTransferir.type = "button";
-botaoTransferir.className = "cadaluno-excluir";
+botaoTransferir.className = "cadaluno-excluir cadaluno-transferir";
 botaoTransferir.textContent = "Transferir";
 
 botaoTransferir.setAttribute(
@@ -286,7 +287,7 @@ botaoTransferir.addEventListener("click", () => {
 
     const acoes = document.createElement("div");
     acoes.className = "cadaluno-acoes-item";
-    acoes.append(botaoTransferir, botaoEncerrar);
+    acoes.append(botaoTransferir, botaoEncerrar, criarBotaoRedefinirSenha("aluno", aluno));
 
     dados.append(titulo, registro);
     item.append(dados, acoes);
