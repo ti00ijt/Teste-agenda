@@ -17,7 +17,7 @@ function criarElemento(tag, classe, texto) {
   return elemento;
 }
 
-function criarBilhete(bilhete) {
+function criarBilhete(bilhete, assinatura, assinaturasDisponiveis) {
   const item = criarElemento("div", "bl-item");
 
   const blocoData = criarElemento("div", "bl-data");
@@ -43,6 +43,10 @@ function criarBilhete(bilhete) {
     )
   );
 
+  const estado = !assinaturasDisponiveis ? "indisponivel" : assinatura ? "assinado" : "pendente";
+  topo.append(criarElemento("span", `bl-status bl-status-${estado}`,
+    !assinaturasDisponiveis ? "Assinatura não consultada" : assinatura ? "Assinado" : "Pendente"));
+
   const titulo = criarElemento("h2", "", bilhete.titulo);
   titulo.id = tituloId;
 
@@ -64,7 +68,19 @@ function criarBilhete(bilhete) {
     ].filter(Boolean).join(" • ")
   );
 
-  const assinar = criarElemento("a", "detalhe-assinar", "Ver assinatura / Assinar");
+  if (assinatura) {
+    const confirmacao = criarElemento("p", "bl-confirmacao");
+    confirmacao.append(document.createTextNode(`Assinado por ${assinatura.nome_responsavel} em `));
+    const dataAssinatura = criarElemento("time");
+    dataAssinatura.dateTime = assinatura.assinado_em;
+    dataAssinatura.textContent = new Intl.DateTimeFormat("pt-BR", {
+      dateStyle: "short", timeStyle: "short", timeZone: "America/Sao_Paulo",
+    }).format(new Date(assinatura.assinado_em));
+    confirmacao.append(dataAssinatura);
+    rodape.append(confirmacao);
+  }
+  const assinar = criarElemento("a", "bl-acao-assinatura",
+    !assinaturasDisponiveis ? "Consultar assinatura" : assinatura ? "Ver assinatura" : "Assinar");
   assinar.href = `assinatura.html?mensagem=${encodeURIComponent(bilhete.id)}`;
   cartao.append(topo, titulo, blocoTexto, rodape, assinar);
   item.append(blocoData, cartao);
@@ -96,10 +112,18 @@ async function carregarBilhetes() {
       return;
     }
 
+    // Uma consulta para todos os bilhetes, restrita à conta no banco.
+    const { data: assinaturas, error: erroAssinaturas } = await supabase.rpc(
+      "listar_assinaturas_aluno", { p_mensagem_ids: bilhetes.map((bilhete) => bilhete.id) }
+    );
+    const assinaturasDisponiveis = !erroAssinaturas && Array.isArray(assinaturas);
+    const porMensagem = new Map(
+      assinaturasDisponiveis ? assinaturas.map((assinatura) => [assinatura.mensagem_id, assinatura]) : []
+    );
     const fragmento = document.createDocumentFragment();
 
     for (const bilhete of bilhetes) {
-      fragmento.append(criarBilhete(bilhete));
+      fragmento.append(criarBilhete(bilhete, porMensagem.get(bilhete.id), assinaturasDisponiveis));
     }
 
     lista.append(fragmento);
@@ -107,6 +131,9 @@ async function carregarBilhetes() {
     mensagemLista.textContent =
       `${bilhetes.length} bilhete(s) exibido(s), do mais recente para o mais antigo. ` +
       "São exibidos até 50 bilhetes.";
+    if (!assinaturasDisponiveis) {
+      mensagemLista.textContent += " Não foi possível consultar as assinaturas. Atualize a página para tentar novamente.";
+    }
 
   } catch (erro) {
     console.error("Erro ao carregar bilhetes:", erro);
@@ -119,3 +146,6 @@ async function carregarBilhetes() {
 }
 
 carregarBilhetes();
+window.addEventListener("pageshow", (evento) => {
+  if (evento.persisted) carregarBilhetes();
+});

@@ -2185,3 +2185,10 @@ body.tela-cadastro-turma {
   outline: 2px solid #005477;
   outline-offset: 2px;
 }
+.histgeral-assinaturas { margin-top:20px; padding-top:16px; border-top:1px solid #ddd; }
+.histgeral-assinaturas summary { cursor:pointer; font-weight:700; }
+.histgeral-atualizar { padding:8px 12px; margin-bottom:12px; cursor:pointer; }
+.histgeral-assinaturas-rolagem { overflow-x:auto; }
+.histgeral-assinaturas table { width:100%; border-collapse:collapse; font-size:14px; }
+.histgeral-assinaturas caption { text-align:left; margin-bottom:8px; }
+.histgeral-assinaturas th, .histgeral-assinaturas td { text-align:left; padding:10px; border-bottom:1px solid #ddd; overflow-wrap:anywhere; }
