@@ -16,7 +16,7 @@
  
 </head>
 
-<body class="tela-assinatura">
+<body class="tela-assinatura" data-perfil="aluno">
 
   <!-- Cabeçalho -->
   <header class="assinatura-cabecalho">
@@ -30,7 +30,7 @@
 
       <a
         class="assinatura-voltar"
-        href="detalhe-bilhete.html"
+        href="bilhete.html"
       >
         ← Voltar
       </a>
@@ -53,21 +53,19 @@
       </h1>
 
       <p class="assinatura-descricao">
-        Informe seu nome completo e sua senha cadastrada
+        Informe seu nome completo e a senha de acesso à conta do aluno
         para confirmar a ciência da mensagem.
       </p>
 
-      <!-- Exemplo da mensagem que será assinada -->
       <div class="assinatura-referencia">
         <span>Mensagem selecionada</span>
-        <strong>Material para a próxima aula</strong>
-        <span>Enviada por</span>
-        <strong>Professora Ana</strong>
+        <strong id="assinatura-assunto">Carregando mensagem...</strong>
+        <p id="assinatura-conteudo" style="white-space: pre-wrap; overflow-wrap: anywhere"></p>
         
       </div>
 
-      <!-- Campos visuais: ainda não existe validação -->
-      <div class="assinatura-campos">
+      <form class="assinatura-campos" id="form-assinatura">
+        <fieldset id="campos-assinatura" disabled style="border: 0; padding: 0; margin: 0; min-width: 0">
 
         <div class="assinatura-campo">
           <label for="nome-responsavel">
@@ -77,21 +75,25 @@
           <input
             type="text"
             id="nome-responsavel"
+            required
+            minlength="3"
+            maxlength="150"
             placeholder="Digite seu nome completo"
-            autocomplete="off"
+            autocomplete="name"
           >
         </div>
 
         <div class="assinatura-campo">
           <label for="senha-responsavel">
-            Senha cadastrada
+            Senha da conta do aluno
           </label>
 
           <input
             type="password"
             id="senha-responsavel"
+            required
             placeholder="Digite sua senha"
-            autocomplete="off"
+            autocomplete="current-password"
             aria-describedby="nota-prototipo"
           >
         </div>
@@ -100,30 +102,31 @@
           class="assinatura-prototipo"
           id="nota-prototipo"
         >
-          Protótipo visual: utilize dados fictícios.
-          Nenhuma assinatura será registrada.
+          A senha será conferida para registrar sua ciência da mensagem.
         </p>
 
         <div class="assinatura-acoes">
 
           <a
             class="assinatura-cancelar"
-            href="detalhe-bilhete.html"
+            href="bilhete.html"
           >
             Cancelar
           </a>
 
-          <!-- Sem ação nesta etapa -->
           <button
             class="assinatura-confirmar"
-            type="button"
+            id="confirmar-assinatura"
+            type="submit"
           >
             Assinar
           </button>
 
         </div>
 
-      </div>
+        </fieldset>
+      </form>
+      <p id="resultado-assinatura" role="status" aria-live="polite">Carregando...</p>
 
     </section>
 
@@ -133,5 +136,7 @@
     Colégio Global • Educação unitária
   </footer>
 
+<script type="module" src="../scripts/verificar-acesso.js"></script>
+<script type="module" src="../scripts/assinatura.js"></script>
 </body>
 </html>

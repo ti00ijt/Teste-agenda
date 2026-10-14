@@ -64,7 +64,9 @@ function criarBilhete(bilhete) {
     ].filter(Boolean).join(" • ")
   );
 
-  cartao.append(topo, titulo, blocoTexto, rodape);
+  const assinar = criarElemento("a", "detalhe-assinar", "Ver assinatura / Assinar");
+  assinar.href = `assinatura.html?mensagem=${encodeURIComponent(bilhete.id)}`;
+  cartao.append(topo, titulo, blocoTexto, rodape, assinar);
   item.append(blocoData, cartao);
 
   return item;
