@@ -1,4 +1,5 @@
 import { supabase } from "./supabase.js";
+import { cadastrarComAcesso } from "./cadastro-com-acesso.js";
 
 const campoTurma = document.querySelector("#turma-aluno");
 const mensagemTurmas = document.querySelector("#mensagem-turmas-aluno");
@@ -98,6 +99,8 @@ carregarOpcoesTurmas();
 const formularioAluno = document.querySelector("#form-cadastro-aluno");
 const nomeAluno = document.querySelector("#nome-aluno");
 const raAluno = document.querySelector("#ra-aluno");
+const senhaAluno = document.querySelector("#senha-inicial-aluno");
+window.addEventListener("pagehide", () => { senhaAluno.value = ""; });
 const botaoCadastrar = document.querySelector("#cadastrar-aluno");
 const mensagemAluno = document.querySelector("#mensagem-aluno");
 
@@ -138,41 +141,12 @@ formularioAluno.addEventListener("submit", async (evento) => {
   botaoCadastrar.textContent = "Cadastrando...";
 
   try {
-    const { data: alunoId, error } = await supabase.rpc(
-      "cadastrar_aluno_com_matricula",
-      dadosAluno
-    );
-
-    if (error) {
-      console.error("Erro ao cadastrar aluno:", {
-        codigo: error.code,
-        mensagem: error.message
-      });
-
-      if (error.code === "23505") {
-        mensagemAluno.textContent =
-          "Já existe um cadastro com esses dados. Confira o RA antes de repetir.";
-      } else if (error.code === "42501") {
-        mensagemAluno.textContent =
-          "Edição não autorizada. Confira seu acesso de coordenação.";
-      } else if (error.code === "22023") {
-        mensagemAluno.textContent = error.message;
-      } else {
-        mensagemAluno.textContent =
-          "Não foi possível confirmar o cadastro. Confira o Console e o banco antes de repetir.";
-      }
-
-      return;
-    }
-
-    if (!alunoId) {
-      mensagemAluno.textContent =
-        "O banco não retornou a confirmação esperada. Confira o cadastro antes de repetir.";
-      return;
-    }
-
+    const cadastro = await cadastrarComAcesso({
+      tipo: "aluno", nome: dadosAluno.p_nome, identificador: dadosAluno.p_ra,
+      turma_id: dadosAluno.p_turma_id, senha: senhaAluno.value,
+    });
     mensagemAluno.textContent =
-      `Aluno ${dadosAluno.p_nome} cadastrado e matriculado com sucesso!`;
+      `Aluno ${dadosAluno.p_nome} cadastrado e matriculado, com conta de acesso criada. Login: ${cadastro.login}.`;
 
     // Limpa os dados, mantendo a turma selecionada.
     nomeAluno.value = "";
@@ -185,6 +159,7 @@ formularioAluno.addEventListener("submit", async (evento) => {
       "Não foi possível confirmar o cadastro. Confira sua conexão e o banco antes de repetir.";
 
   } finally {
+    senhaAluno.value = "";
     cadastrandoAluno = false;
     botaoCadastrar.disabled = false;
     botaoCadastrar.textContent = textoOriginal;

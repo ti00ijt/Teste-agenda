@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="coordenacao.css">
 </head>
 
-<body class="tela-cadastro-professor">
+<body class="tela-cadastro-professor" data-perfil="coordenacao">
 
   <!-- Cabeçalho -->
   <header class="cadprof-cabecalho">
@@ -55,7 +55,7 @@
       >
 
         <h2 id="titulo-cadastro">Dados do professor</h2>
-        <form id="form-cadastro-professor" onsubmit="event.preventDefault()">
+        <form id="form-cadastro-professor">
         <div class="cadprof-campos">
 
           <div class="cadprof-campo">
@@ -87,6 +87,21 @@
 
         </div>
 
+        <div class="cadprof-campos">
+          <div class="cadprof-campo">
+            <label for="email-professor">E-mail de acesso</label>
+            <input type="email" id="email-professor" maxlength="254" autocomplete="off" required>
+          </div>
+          <div class="cadprof-campo">
+            <label for="senha-inicial-professor">Senha inicial de acesso</label>
+            <input type="password" id="senha-inicial-professor" minlength="8" maxlength="128" autocomplete="new-password" required aria-describedby="ajuda-acesso-professor">
+            <label style="display: flex; align-items: center; gap: 8px; margin-top: 8px; cursor: pointer;">
+              <input type="checkbox" data-mostrar-senha="senha-inicial-professor" aria-controls="senha-inicial-professor" style="width: auto; margin: 0;">
+              Mostrar senha
+            </label>
+            <small id="ajuda-acesso-professor">Use de 8 a 128 caracteres. Entregue o e-mail e a senha ao professor.</small>
+          </div>
+        </div>
         <!-- Seleção das matérias -->
         <div class="cadprof-materias">
 
@@ -229,6 +244,8 @@
     </div>
   </dialog>
   <script type="module" src="../scripts/cadastrar-professor.js"></script>
+  <script type="module" src="../scripts/visibilidade-senha.js"></script>
+  <script type="module" src="../scripts/verificar-acesso.js"></script>
   <footer class="cadprof-rodape">
     Colégio Global • Educação unitária
   </footer>

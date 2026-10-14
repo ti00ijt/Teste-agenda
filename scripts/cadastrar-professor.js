@@ -1,8 +1,12 @@
 import { supabase } from "./supabase.js";
+import { cadastrarComAcesso } from "./cadastro-com-acesso.js";
 
 const formulario = document.querySelector("#form-cadastro-professor");
 const nome = document.querySelector("#nome-professor");
 const codigo = document.querySelector("#codigo-professor");
+const emailProfessor = document.querySelector("#email-professor");
+const senhaProfessor = document.querySelector("#senha-inicial-professor");
+window.addEventListener("pagehide", () => { senhaProfessor.value = ""; });
 const botao = document.querySelector("#cadastrar-professor");
 const mensagem = document.querySelector("#mensagem-professor");
 
@@ -38,19 +42,13 @@ formulario.addEventListener("submit", async (evento) => {
   botao.textContent = "Salvando...";
 
   try {
-    const { error } = await supabase.rpc(
-    "cadastrar_professor_com_materias",
-    {
-      p_nome: dadosProfessor.nome,
-      p_codigo: dadosProfessor.codigo,
-      p_materias: dadosProfessor.materias
-  }
-);
-
-    if (error) throw error;
-
+    const cadastro = await cadastrarComAcesso({
+      tipo: "professor", nome: dadosProfessor.nome, identificador: dadosProfessor.codigo,
+      materias: dadosProfessor.materias, email: emailProfessor.value.trim(), senha: senhaProfessor.value,
+    });
     mensagem.textContent =
-      `Professor ${dadosProfessor.nome} cadastrado com sucesso!`;
+      `Professor ${dadosProfessor.nome} cadastrado com conta de acesso criada. Login: ${cadastro.login}.`;
+    emailProfessor.value = "";
 
     nome.value = "";
     codigo.value = "";
@@ -60,34 +58,9 @@ formulario.addEventListener("submit", async (evento) => {
     renderizarMateriasSelecionadas();
 
   } catch (erro) {
-    console.error("Erro ao cadastrar professor:", {
-      codigo: erro.code,
-      mensagem: erro.message
-    });
-
-    if (erro.code === "23505") {
-      mensagem.textContent =
-        "Já existe um professor com esse código.";
-    } else if (erro.code === "42501") {
-      mensagem.textContent =
-        "Cadastro não autorizado. Entre como coordenação ativa.";
-    } 
-    if (erro.code === "23505") {
-        mensagem.textContent =
-          "Já existe um professor com esse código.";
-      } else if (erro.code === "42501") {
-        mensagem.textContent =
-          "Cadastro não autorizado. Entre como coordenação ativa.";
-      } else if (erro.code === "22023") {
-        mensagem.textContent = erro.message;
-      } else {
-        mensagem.textContent =
-          "Não foi possível confirmar o cadastro. Confira a tabela " +
-          "professores no Supabase antes de tentar novamente.";
-      }
-
-    
+    mensagem.textContent = erro.message || "N?o foi poss?vel confirmar o cadastro.";
   } finally {
+    senhaProfessor.value = "";
     salvando = false;
     atualizarBotaoMateria();
     botao.disabled = false;
