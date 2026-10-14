@@ -6,7 +6,7 @@ const paginaLogin = new URL("../index.html", import.meta.url);
 
 const paineis = new Map([
   ["coordenacao", "../coordenacao/coordenacao.html"],
-  ["professor", "../professor/painel.professor.html"],
+  ["professor", "../Professor/painel.professor.html"],
   ["aluno", "../aluno/painelAluno.html"]
 ]);
 

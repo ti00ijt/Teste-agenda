@@ -10,7 +10,7 @@ const mensagem = document.querySelector("#mensagem-login");
 // Caminhos relativos à página de login.
 const paginas = new Map([
   ["coordenacao", "coordenacao/coordenacao.html"],
-  ["professor", "professor/painel.professor.html"],
+  ["professor", "Professor/painel.professor.html"],
   ["aluno", "aluno/painelAluno.html"]
 ]);
 
