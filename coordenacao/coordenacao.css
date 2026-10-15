@@ -1277,9 +1277,10 @@ body.tela-cadastro-turma {
 
 .tela-cadastro-aluno .cadaluno-item {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   padding-block: 18px;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -1289,6 +1290,7 @@ body.tela-cadastro-turma {
 }
 
 .tela-cadastro-aluno .cadaluno-dados {
+  width: 100%;
   min-width: 0;
   overflow-wrap: anywhere;
 }
@@ -1867,8 +1869,9 @@ body.tela-cadastro-turma {
 }
 
 .tela-cadastro-aluno .cadaluno-acoes-item {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
   gap: 8px;
 }
 
@@ -2192,4 +2195,13 @@ body.tela-cadastro-turma {
   .tela-cadastro-professor .cadprof-acoes-registro {
     grid-template-columns: 1fr;
   }
+}
+.tela-cadastro-aluno .cadaluno-acoes-item > button {
+  min-height: 0;
+  width: 100%;
+  padding: 6px 10px;
+  margin: 0;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
 }
