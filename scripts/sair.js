@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js?v=20261015-2";
+import { supabase } from "./supabase.js";
 
 const botaoSair = document.querySelector("#botao-sair");
 let saindo = false;
@@ -14,16 +14,6 @@ botaoSair.addEventListener("click", async (evento) => {
   botaoSair.textContent = "Saindo...";
 
   try {
-    // Remove a inscrição local antes de sair de uma conta num aparelho compartilhado.
-    if ("serviceWorker" in navigator && "PushManager" in window) {
-      const registro = await navigator.serviceWorker.getRegistration(new URL("../", import.meta.url));
-      const inscricao = await registro?.pushManager.getSubscription();
-      if (inscricao) {
-        await supabase.functions.invoke("notificacoes", { body: { acao: "remover", endpoint: inscricao.endpoint } });
-        const removeu = await inscricao.unsubscribe();
-        if (!removeu) throw new Error("Não foi possível desativar notificações neste aparelho.");
-      }
-    }
     const { error } = await supabase.auth.signOut({
       scope: "local"
     });

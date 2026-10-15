@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js?v=20261015-2";
+import { supabase } from "./supabase.js";
 
 const titulo = document.querySelector("#titulo-aprovacoes");
 const descricao = document.querySelector("#descricao-aprovacoes");

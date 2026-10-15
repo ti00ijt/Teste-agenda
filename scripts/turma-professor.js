@@ -1,5 +1,5 @@
-import { supabase } from "./supabase.js?v=20261015-2";
-import { criarConsultaAssinaturas } from "./consulta-assinaturas.js?v=20261015-2";
+import { supabase } from "./supabase.js";
+import { criarConsultaAssinaturas } from "./consulta-assinaturas.js";
 
 const tituloTurma = document.querySelector("#titulo-turma");
 const identificacao = document.querySelector("#identificacao-professor-turma");

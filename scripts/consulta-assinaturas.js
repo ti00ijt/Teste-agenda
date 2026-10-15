@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js?v=20261015-2";
+import { supabase } from "./supabase.js";
 
 const formatoData = new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short", timeZone: "America/Sao_Paulo" });
 

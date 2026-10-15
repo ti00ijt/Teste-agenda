@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js?v=20261015-2";
+import { supabase } from "./supabase.js";
 
 export async function cadastrarComAcesso(dados) {
   const { data, error } = await supabase.functions.invoke("cadastrar-usuario", { body: dados });

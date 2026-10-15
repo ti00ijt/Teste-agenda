@@ -14,9 +14,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área do aluno | Colégio Global</title>
   <link rel="stylesheet" href="../estilos/style.css">
-  <link rel="manifest" href="../manifest.webmanifest">
-  <link rel="apple-touch-icon" href="../imagens/img.png">
-  <meta name="theme-color" content="#005477">
   <style>
   body[data-perfil]:not([data-acesso="liberado"]) {
     visibility: hidden;
@@ -54,20 +51,6 @@
       <!--<div class="pa-turma"><span>Turma</span><strong>6A</strong></div>-->
     </section>
 
-    <section class="pa-notificacoes" aria-labelledby="titulo-notificacoes">
-      <h2 id="titulo-notificacoes">Notificações</h2>
-      <p>Ative os avisos neste aparelho. Nesta etapa, o envio é apenas de teste.</p>
-      <div class="pa-notificacoes-acoes">
-        <button type="button" data-notificacao="ativar">Ativar notificações</button>
-        <button type="button" data-notificacao="desativar">Desativar neste aparelho</button>
-        <button type="button" data-notificacao="teste">Enviar teste para este aparelho</button>
-        <button type="button" data-notificacao="atualizar">Atualizar histórico</button>
-      </div>
-      <p id="status-notificacoes" role="status" aria-live="polite">Carregando notificações...</p>
-      <p>Notificação vista não significa mensagem assinada. Exibindo as últimas 50 notificações.</p>
-      <ul id="lista-notificacoes"></ul>
-    </section>
-
     <h2 class="pa-secao-titulo">O que você deseja acessar?</h2>
     <!-- Ajuste os href caso suas páginas tenham outros nomes. -->
     <nav class="pa-opcoes" aria-label="Agenda escolar">
@@ -93,10 +76,8 @@
   </main>
   <footer class="pa-rodape">Colégio Global <span aria-hidden="true">•</span> Educação unitária</footer>
 
-  <script type="module" src="../scripts/verificar-acesso.js?v=20261015-2"></script>
-  <script type="module" src="../scripts/painel-aluno.js?v=20261015-2"></script>
-  <script type="module" src="../scripts/notificacoes.js?v=20261015-2"></script>
-  <script type="module" src="../scripts/sair.js?v=20261015-2"></script>
+  <script type="module" src="../scripts/verificar-acesso.js"></script>
+  <script type="module" src="../scripts/painel-aluno.js"></script>
 </body>
 </html>
 

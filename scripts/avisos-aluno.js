@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js?v=20261015-2";
+import { supabase } from "./supabase.js";
 
 const lista = document.querySelector("#lista-avisos");
 const mensagemLista = document.querySelector("#mensagem-lista-avisos");

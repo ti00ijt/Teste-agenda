@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js?v=20261015-2";
+import { supabase } from "./supabase.js";
 
 // Localiza os elementos da tela.
 const formulario = document.querySelector("#form-login");

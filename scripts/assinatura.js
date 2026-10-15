@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js?v=20261015-2";
+import { supabase } from "./supabase.js";
 
 const formulario = document.querySelector("#form-assinatura");
 const campos = document.querySelector("#campos-assinatura");
