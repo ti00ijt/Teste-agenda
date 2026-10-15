@@ -17,10 +17,9 @@ function criarElemento(tag, classe, texto) {
   return elemento;
 }
 
-function criarAviso(aviso) {
+function criarAviso(aviso, assinatura, assinaturasDisponiveis) {
   const item = criarElemento("div", "bl-item");
 
-  // Data na lateral do cartão.
   const blocoData = criarElemento("div", "bl-data");
   const data = document.createElement("time");
 
@@ -29,7 +28,6 @@ function criarAviso(aviso) {
 
   blocoData.append(data, document.createElement("span"));
 
-  // Conteúdo do cartão.
   const cartao = criarElemento("article", "bl-cartao");
   const tituloId = `aviso-${aviso.id}`;
 
@@ -45,13 +43,16 @@ function criarAviso(aviso) {
     )
   );
 
+  const estado = !assinaturasDisponiveis ? "indisponivel" : assinatura ? "assinado" : "pendente";
+  topo.append(criarElemento("span", `bl-status bl-status-${estado}`,
+    !assinaturasDisponiveis ? "Assinatura não consultada" : assinatura ? "Assinado" : "Pendente"));
+
   const titulo = criarElemento("h2", "", aviso.titulo);
   titulo.id = tituloId;
 
   const blocoTexto = criarElemento("div", "bl-texto");
   const texto = criarElemento("p", "", aviso.conteudo);
 
-  // Preserva as quebras de linha sem interpretar o texto como HTML.
   texto.style.whiteSpace = "pre-wrap";
   texto.style.overflowWrap = "anywhere";
 
@@ -67,7 +68,21 @@ function criarAviso(aviso) {
     ].filter(Boolean).join(" • ")
   );
 
-  cartao.append(topo, titulo, blocoTexto, rodape);
+  if (assinatura) {
+    const confirmacao = criarElemento("p", "bl-confirmacao");
+    confirmacao.append(document.createTextNode(`Assinado por ${assinatura.nome_responsavel} em `));
+    const dataAssinatura = criarElemento("time");
+    dataAssinatura.dateTime = assinatura.assinado_em;
+    dataAssinatura.textContent = new Intl.DateTimeFormat("pt-BR", {
+      dateStyle: "short", timeStyle: "short", timeZone: "America/Sao_Paulo",
+    }).format(new Date(assinatura.assinado_em));
+    confirmacao.append(dataAssinatura);
+    rodape.append(confirmacao);
+  }
+  const assinar = criarElemento("a", "bl-acao-assinatura",
+    !assinaturasDisponiveis ? "Consultar assinatura" : assinatura ? "Ver assinatura" : "Assinar");
+  assinar.href = `assinatura.html?mensagem=${encodeURIComponent(aviso.id)}&origem=aviso`;
+  cartao.append(topo, titulo, blocoTexto, rodape, assinar);
   item.append(blocoData, cartao);
 
   return item;
@@ -97,10 +112,18 @@ async function carregarAvisos() {
       return;
     }
 
+    // Uma consulta para todos os avisos, restrita à conta no banco.
+    const { data: assinaturas, error: erroAssinaturas } = await supabase.rpc(
+      "listar_assinaturas_aluno", { p_mensagem_ids: avisos.map((aviso) => aviso.id) }
+    );
+    const assinaturasDisponiveis = !erroAssinaturas && Array.isArray(assinaturas);
+    const porMensagem = new Map(
+      assinaturasDisponiveis ? assinaturas.map((assinatura) => [assinatura.mensagem_id, assinatura]) : []
+    );
     const fragmento = document.createDocumentFragment();
 
     for (const aviso of avisos) {
-      fragmento.append(criarAviso(aviso));
+      fragmento.append(criarAviso(aviso, porMensagem.get(aviso.id), assinaturasDisponiveis));
     }
 
     lista.append(fragmento);
@@ -108,6 +131,9 @@ async function carregarAvisos() {
     mensagemLista.textContent =
       `${avisos.length} aviso(s) exibido(s), do mais recente para o mais antigo. ` +
       "São exibidos até 50 avisos.";
+    if (!assinaturasDisponiveis) {
+      mensagemLista.textContent += " Não foi possível consultar as assinaturas. Atualize a página para tentar novamente.";
+    }
 
   } catch (erro) {
     console.error("Erro ao carregar avisos:", erro);
@@ -120,3 +146,6 @@ async function carregarAvisos() {
 }
 
 carregarAvisos();
+window.addEventListener("pageshow", (evento) => {
+  if (evento.persisted) carregarAvisos();
+});

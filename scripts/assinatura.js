@@ -8,9 +8,9 @@ const botao = document.querySelector("#confirmar-assinatura");
 const resultado = document.querySelector("#resultado-assinatura");
 const mensagemId = new URLSearchParams(location.search).get("mensagem");
 const origem = new URLSearchParams(location.search).get("origem");
-if (origem === "tarefa") {
+if (origem === "tarefa" || origem === "aviso") {
   for (const link of document.querySelectorAll(".assinatura-voltar, .assinatura-cancelar")) {
-    link.href = "tarefa.html";
+    link.href = origem === "aviso" ? "aviso.html" : "tarefa.html";
   }
 }
 let enviando = false;

@@ -54,30 +54,32 @@
     <h2 class="pa-secao-titulo">O que você deseja acessar?</h2>
     <!-- Ajuste os href caso suas páginas tenham outros nomes. -->
     <nav class="pa-opcoes" aria-label="Agenda escolar">
-      <a class="pa-opcao" href="tarefa.html">
+      <a class="pa-opcao" href="tarefa.html" data-categoria="tarefa">
         <span class="pa-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="16" rx="2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m8 13 2 2 5-5M9 18h6"/></svg></span>
         <h3>Tarefa</h3>
         <p>Consulte suas atividades e os prazos de entrega.</p>
         <span class="pa-acessar">Acessar tarefas <span aria-hidden="true">→</span></span>
       </a>
-      <a class="pa-opcao" href="aviso.html">
+      <a class="pa-opcao" href="aviso.html" data-categoria="aviso">
         <span class="pa-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 10 14-5v14L4 14ZM4 10v4H2v-4M7 15l1 6h4l-2-5M21 9v6"/></svg></span>
         <h3>Aviso</h3>
         <p>Fique por dentro dos comunicados do colégio.</p>
         <span class="pa-acessar">Ver avisos <span aria-hidden="true">→</span></span>
       </a>
-      <a class="pa-opcao" href="bilhete.html">
+      <a class="pa-opcao" href="bilhete.html" data-categoria="bilhete">
         <span class="pa-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
         <h3>Bilhete</h3>
         <p>Acesse os bilhetes e acompanhe as mensagens.</p>
         <span class="pa-acessar">Ler bilhetes <span aria-hidden="true">→</span></span>
       </a>
     </nav>
+    <p id="status-pendencias" role="status" aria-live="polite"></p>
   </main>
   <footer class="pa-rodape">Colégio Global <span aria-hidden="true">•</span> Educação unitária</footer>
 
   <script type="module" src="../scripts/verificar-acesso.js"></script>
   <script type="module" src="../scripts/painel-aluno.js"></script>
+  <script type="module" src="../scripts/pendencias-aluno.js"></script>
 </body>
 </html>
 
