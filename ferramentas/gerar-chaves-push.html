@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerar chaves de notificações</title>
+<body>
+<h1>Gerar chaves de notificações</h1>
+<p>Esta ferramenta gera chaves neste navegador, sem transmitir nem salvar. Gere uma única vez. Copie para os Secrets do Supabase e feche esta página. Não envie a chave privada no chat nem ao GitHub.</p>
+<button id="gerar" type="button">Gerar par de chaves</button>
+<p id="status" role="status"></p>
+<label>VAPID_PUBLIC_KEY <textarea id="publica" readonly rows="3" cols="65"></textarea></label>
+<label>VAPID_PRIVATE_KEY <textarea id="privada" readonly rows="3" cols="65"></textarea></label>
+<script>
+document.querySelector("#gerar").addEventListener("click", async () => {
+  try {
+    const par = await crypto.subtle.generateKey({ name:"ECDSA", namedCurve:"P-256" }, true, ["sign", "verify"]);
+    const chave = await crypto.subtle.exportKey("jwk", par.privateKey);
+    function decode(s) { return Uint8Array.from(atob(s.replace(/-/g,"+").replace(/_/g,"/").padEnd(Math.ceil(s.length/4)*4,"=")), c => c.charCodeAt(0)); }
+    const publica = new Uint8Array(65);
+    publica[0] = 4; publica.set(decode(chave.x),1); publica.set(decode(chave.y),33);
+    document.querySelector("#publica").value = btoa(String.fromCharCode(...publica)).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+    document.querySelector("#privada").value = chave.d;
+    document.querySelector("#status").textContent = "Chaves geradas. Guarde ambas no Supabase e não gere outro par depois de cadastrar aparelhos.";
+    document.querySelector("#gerar").disabled = true;
+  } catch { document.querySelector("#status").textContent = "Abra esta ferramenta por HTTPS ou localhost em navegador compatível."; }
+});
+window.addEventListener("pagehide", () => {
+  document.querySelector("#publica").value = document.querySelector("#privada").value = "";
+});
+</script>
+</body>
+</html>

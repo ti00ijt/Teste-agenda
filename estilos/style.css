@@ -2175,3 +2175,10 @@ body.tela-envio {
 .tela-turma .histgeral-assinaturas table { width:100%; border-collapse:collapse; font-size:14px; }
 .tela-turma .histgeral-assinaturas caption { text-align:left; margin-bottom:8px; }
 .tela-turma .histgeral-assinaturas th, .tela-turma .histgeral-assinaturas td { padding:10px; border-bottom:1px solid #ddd; text-align:left; }
+.painel-aluno .pa-notificacoes { margin:24px 0; padding:24px; border:1px solid #ddd; border-left:4px solid #005477; background:#fff; }
+.painel-aluno .pa-notificacoes-acoes { display:flex; flex-wrap:wrap; gap:8px; }
+.painel-aluno .pa-notificacoes button { padding:8px 12px; border:1px solid #005477; border-radius:6px; background:#e8f4fa; color:#005477; font:inherit; cursor:pointer; }
+.painel-aluno .pa-notificacoes button:focus-visible { outline:3px solid #005477; outline-offset:3px; }
+.painel-aluno .pa-notificacoes button:disabled { opacity:.6; cursor:wait; }
+.painel-aluno #lista-notificacoes { padding-left:20px; }
+.painel-aluno #lista-notificacoes li { padding:12px 0; border-bottom:1px solid #ddd; }
