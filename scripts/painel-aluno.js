@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+import { supabase } from "./supabase.js?v=20261015-2";
 
 const nomeAluno = document.querySelector("#nome-aluno-painel");
 const mensagem = document.querySelector("#mensagem-painel");

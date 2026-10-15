@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+import { supabase } from "./supabase.js?v=20261015-2";
 //alert("O JavaScript de turmas carregou");//
 const nome = document.querySelector("#nome-turma");
 const ensino = document.querySelector("#ensino-turma");

@@ -9,7 +9,7 @@ const aviso = setTimeout(() => {
 }, 15000);
 
 try {
-  await import("./login.js");
+  await import("./login.js?v=20261015-2");
   mensagem.textContent = "";
 } catch (erro) {
   console.error("Não foi possível carregar o módulo de login:", erro);

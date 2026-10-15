@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+import { supabase } from "./supabase.js?v=20261015-2";
 
 // Estes caminhos partem da localização deste arquivo,
 // que está dentro da pasta scripts.

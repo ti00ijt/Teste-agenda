@@ -1,6 +1,6 @@
-import { supabase } from "./supabase.js";
-import { cadastrarComAcesso } from "./cadastro-com-acesso.js";
-import { criarBotaoRedefinirSenha } from "./redefinir-senha.js";
+import { supabase } from "./supabase.js?v=20261015-2";
+import { cadastrarComAcesso } from "./cadastro-com-acesso.js?v=20261015-2";
+import { criarBotaoRedefinirSenha } from "./redefinir-senha.js?v=20261015-2";
 
 const campoTurma = document.querySelector("#turma-aluno");
 const mensagemTurmas = document.querySelector("#mensagem-turmas-aluno");

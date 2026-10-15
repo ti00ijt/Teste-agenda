@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+import { supabase } from "./supabase.js?v=20261015-2";
 
 const botaoSair = document.querySelector("#botao-sair");
 let saindo = false;

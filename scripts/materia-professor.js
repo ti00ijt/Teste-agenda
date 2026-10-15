@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+import { supabase } from "./supabase.js?v=20261015-2";
 
 const tituloMateria = document.querySelector("#titulo-materia");
 const professorDaMateria = document.querySelector("#professor-da-materia");
