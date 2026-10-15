@@ -1,5 +1,5 @@
 import { createClient } from
-  "https://esm.sh/@supabase/supabase-js@2";
+  "https://esm.sh/@supabase/supabase-js@2.117.3?bundle";
 
 // Substitua pelos dados do seu projeto.
 const SUPABASE_URL = "https://vvchheecppfrkirjrqeq.supabase.co";
