@@ -17,7 +17,13 @@ async function chamar(acao, dados = {}) {
   return data;
 }
 function bytes(chave) {
-  return Uint8Array.from(atob(chave.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(chave.length / 4) * 4, "=")), (c) => c.charCodeAt(0));
+  const limpa = typeof chave === "string" ? chave.trim() : "";
+  if (!/^[A-Za-z0-9_-]{87}=?$/.test(limpa)) {
+    throw new Error("VAPID_PUBLIC_KEY inválida no Supabase. Copie o valor completo do campo público, não o privado. Não gere outro par se ainda possui o original.");
+  }
+  const dados = Uint8Array.from(atob(limpa.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(limpa.length / 4) * 4, "=")), (c) => c.charCodeAt(0));
+  if (dados.length !== 65 || dados[0] !== 4) throw new Error("A chave pública VAPID não tem o formato esperado. Confira o secret VAPID_PUBLIC_KEY.");
+  return dados;
 }
 async function historico() {
   const { notificacoes } = await chamar("listar");
@@ -83,7 +89,7 @@ for (const botao of botoes) botao.addEventListener("click", () => executar(async
       const resposta = await chamar("teste", { endpoint: inscricao.endpoint });
       status.textContent = resposta.aceita
         ? "O serviço de push aceitou o teste. Confira as notificações do aparelho; isso não confirma leitura."
-        : "Teste salvo no histórico, mas o envio ao aparelho falhou. Tente ativar novamente.";
+        : `Teste salvo no histórico, mas o envio ao aparelho falhou. ${resposta.diagnostico || "Tente desativar e ativar novamente as notificações."}`;
       await historico();
       break;
     }
