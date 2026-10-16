@@ -3,13 +3,14 @@ import { supabase } from "./supabase.js";
 const botaoSair = document.querySelector("#botao-sair");
 let saindo = false;
 
-botaoSair.addEventListener("click", async (evento) => {
+botaoSair?.addEventListener("click", async (evento) => {
   // Impede o link de trocar de página antes de encerrar a sessão.
   evento.preventDefault();
 
   if (saindo) return;
 
   saindo = true;
+  document.body.removeAttribute("data-acesso");
   const textoOriginal = botaoSair.textContent;
   botaoSair.textContent = "Saindo...";
 
@@ -24,6 +25,7 @@ botaoSair.addEventListener("click", async (evento) => {
     window.location.replace("../index.html");
   } catch {
     alert("Não foi possível sair. Tente novamente.");
+    window.location.reload();
   } finally {
     saindo = false;
     botaoSair.textContent = textoOriginal;

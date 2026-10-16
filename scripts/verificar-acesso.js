@@ -10,7 +10,10 @@ const paineis = new Map([
   ["aluno", "../aluno/painelAluno.html"]
 ]);
 
+let verificacaoAtual = 0;
+
 async function verificarAcesso() {
+  const verificacao = ++verificacaoAtual;
   document.body.removeAttribute("data-acesso");
 
   try {
@@ -19,6 +22,7 @@ async function verificarAcesso() {
       data: { user },
       error: erroUsuario
     } = await supabase.auth.getUser();
+    if (verificacao !== verificacaoAtual) return;
 
     if (erroUsuario || !user) {
       window.location.replace(paginaLogin.href);
@@ -31,6 +35,7 @@ async function verificarAcesso() {
       .select("perfil, ativo")
       .eq("id", user.id)
       .maybeSingle();
+    if (verificacao !== verificacaoAtual) return;
 
     if (erroPerfil) {
       throw new Error("Não foi possível consultar seu perfil.");
@@ -60,6 +65,7 @@ async function verificarAcesso() {
     document.body.dataset.acesso = "liberado";
 
   } catch {
+    if (verificacao !== verificacaoAtual) return;
     alert(
       "Não foi possível verificar seu acesso. " +
       "Confira sua conexão e tente novamente."
@@ -71,6 +77,7 @@ async function verificarAcesso() {
 
 // Esconde o conteúdo antes de a página ficar no histórico.
 window.addEventListener("pagehide", () => {
+  verificacaoAtual++;
   document.body.removeAttribute("data-acesso");
 });
 
@@ -84,6 +91,7 @@ window.addEventListener("pageshow", (evento) => {
 // Se a sessão for encerrada, retorna ao login.
 supabase.auth.onAuthStateChange((evento) => {
   if (evento === "SIGNED_OUT") {
+    verificacaoAtual++;
     document.body.removeAttribute("data-acesso");
     window.location.replace(paginaLogin.href);
   }

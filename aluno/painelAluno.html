@@ -14,11 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área do aluno | Colégio Global</title>
   <link rel="stylesheet" href="../estilos/style.css">
-  <style>
-  body[data-perfil]:not([data-acesso="liberado"]) {
-    visibility: hidden;
-  }
-</style>
+  <link rel="stylesheet" href="../estilos/acesso.css">
 </head>
 <body class="painel-aluno" data-perfil="aluno">
   <a class="pa-pular" href="#conteudo">Pular para o conteúdo</a>
@@ -77,9 +73,10 @@
   </main>
   <footer class="pa-rodape">Colégio Global <span aria-hidden="true">•</span> Educação unitária</footer>
 
-  <script type="module" src="../scripts/verificar-acesso.js"></script>
+  <script type="module" src="../scripts/verificar-acesso.js?v=20261016-acesso"></script>
   <script type="module" src="../scripts/painel-aluno.js"></script>
   <script type="module" src="../scripts/pendencias-aluno.js"></script>
+  <script type="module" src="../scripts/sair.js?v=20261016-acesso"></script>
 </body>
 </html>
 

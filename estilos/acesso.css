@@ -1,0 +1,4 @@
+/* Só exibe a página depois da confirmação da sessão e do perfil. */
+body[data-perfil]:not([data-acesso="liberado"]) {
+  visibility: hidden;
+}
